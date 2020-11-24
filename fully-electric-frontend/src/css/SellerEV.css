@@ -1,0 +1,32 @@
+.seller-ev {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.callToActionButton-container {
+    padding: 0 10%;
+}
+
+.callToActionButton-container :nth-child(2) {
+    background-color: rgb(240, 0, 0);
+}
+
+.callToActionButton-container :nth-child(2):hover {
+    background-color: rgb(190, 0, 0);
+}
+
+.seller-ev .seller-contact {
+    display: none;
+}
+
+.seller-ev .callToActionButton {
+    margin: 0 20px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide (mobile) */
+@media screen and (max-width: 600px) {
+    .callToActionButton-container :first-child {
+        margin-bottom: 15px;
+    }
+}

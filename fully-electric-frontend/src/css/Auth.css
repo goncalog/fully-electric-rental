@@ -1,0 +1,58 @@
+.auth {
+    margin: 50px auto;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0px 0px 1px 2px rgb(209, 209, 209);
+    border-radius: 5px;
+}
+
+.auth .main-headline {
+    font-size: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.auth input {
+    width: 90%;
+    height: 55px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 20px 0;
+}
+
+.auth .first-name input {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.auth .last-name input {
+    margin-top: 0;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.auth .invisible {
+    display: none;
+}
+
+.auth .callToActionButton {
+    margin-bottom: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide (tablet portrait) */
+@media screen and (max-width: 800px) {
+    .auth {
+        width: 400px;
+    }
+}
+
+/* Responsive layout - when the screen is less than 600px wide (mobile) */
+@media screen and (max-width: 600px) {
+    .auth {
+        width: 300px;
+    }
+}

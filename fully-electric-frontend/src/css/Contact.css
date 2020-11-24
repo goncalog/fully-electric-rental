@@ -1,0 +1,36 @@
+.contact {
+    width: 800px;
+    margin: 0 auto;
+    padding: 30px 10%;
+}
+
+.contact-form {
+    padding-bottom: 20px;
+}
+
+.input input {
+    width: 75%;
+}
+
+.input textarea {
+    width: 100%;
+}
+
+/* Responsive layout - when the screen is less than 800px wide (tablet portrait) */
+@media screen and (max-width: 800px) {
+    .contact {
+        width: 600px;
+    }
+
+    .input input {
+        width: 100%;
+    }
+}
+
+/* Responsive layout - when the screen is less than 600px wide (mobile) */
+@media screen and (max-width: 600px) {
+    .contact {
+        min-width: 300px;
+        width: 100%;
+    }
+}
