@@ -1,7 +1,7 @@
 .headline-container {
     height: 600px;
     width: 100%;
-    padding: 5% 45% 0 10%;
+    padding: 5% 33% 0 10%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -13,12 +13,12 @@
 }
 
 .main-headline {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 900;
 }
 
 .secondary-headline {
-    padding-right: 15%;
+    padding-right: 39%;
 }
 
 .benefits-container {
@@ -47,6 +47,10 @@
     color: white;
 }
 
+.seller-container .secondary-headline {
+    padding-right: 15%;
+}
+
 .callToActionButton {
     height: 50px;
     width: 150px;
@@ -64,11 +68,15 @@
 /* Responsive layout - when the screen is less than 1250px wide */
 @media screen and (max-width: 1250px) {    
     .headline-container {
-        padding: 5% 25% 0 10%;
+        padding: 5% 26% 0 10%;
+    }
+
+    .main-headline {
+        font-size: 44px;
     }
     
     .secondary-headline {
-        padding-right: 25%;
+        padding-right: 35%;
     }
     
     .benefits {
@@ -86,6 +94,10 @@
     .seller-container {
         padding: 5% 27% 5% 10%;
     }
+
+    .seller-container .secondary-headline {
+        padding-right: 25%;
+    }
 }
 
 /* Responsive layout - when the screen is less than 1000px wide */
@@ -93,9 +105,14 @@
     .headline-container {
         padding: 6% 15% 0 10%;
     }
+
+    .main-headline {
+        font-size: 42px;
+    }
     
     .secondary-headline {
-        padding-right: 17%;
+        font-size: 24px;
+        padding-right: 32%;
     }
     
     .benefits {
@@ -117,6 +134,10 @@
     .seller-container .secondary-headline {
         padding-right: 27%;
     }
+
+    .seller-container .secondary-headline {
+        padding-right: 34%;
+    }
 }
 
 /* Responsive layout - when the screen is less than 800px wide (tablet portrait) */
@@ -127,12 +148,12 @@
     }
 
     .main-headline {
-        font-size: 40px;
+        font-size: 32px;
     }
     
     .secondary-headline {
-        font-size: 26px;
-        padding-right: 10%;
+        font-size: 20px;
+        padding-right: 34%;
     }
     
     .benefits {
@@ -160,7 +181,7 @@
     }
 
     .seller-container .secondary-headline {
-        padding-right: 20%;
+        padding-right: 24%;
         font-size: 24px;
     }
 }
@@ -172,12 +193,13 @@
     }
 
     .main-headline {
-        font-size: 40px;
+        font-size: 28px;
         padding-bottom: 10px;
     }
     
     .secondary-headline {
         font-size: 16px;
+        padding-right: 14%;
     }
 
     .benefits-container {
@@ -200,11 +222,11 @@
     }
 
     .seller-container .main-headline {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .seller-container .secondary-headline {
         padding-right: 20%;
-        font-size: 14px;
+        font-size: 16px;
     }
 }
