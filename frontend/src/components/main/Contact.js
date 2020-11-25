@@ -1,8 +1,8 @@
 import React from 'react';
-import ContactForm from './support_components/ContactForm';
-import CallToActionButton from './support_components/CallToActionButton';
-import '../css/Contact.css';
-import validateEmail from '../utils/validateEmail';
+import ContactForm from '../support/ContactForm';
+import CallToActionButton from '../support/CallToActionButton';
+import '../../css/Contact.css';
+import validateEmail from '../../utils/validateEmail';
 
 export default class Contact extends React.Component {
     constructor(props) {

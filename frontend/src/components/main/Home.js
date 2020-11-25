@@ -1,10 +1,10 @@
 import React from 'react';
-import HeadlineContainer from './support_components/HeadlineContainer';
-import BenefitsContainer from './support_components/BenefitsContainer';
-import SellerContainer from './support_components/SellerContainer';
-import backgroundHeadlineContainer from '../media/headline-background.jpg';
-import backgroundSellerContainer from '../media/seller-container-background.jpg';
-import '../css/Home.css';
+import HeadlineContainer from '../support/HeadlineContainer';
+import BenefitsContainer from '../support/BenefitsContainer';
+import SellerContainer from '../support/SellerContainer';
+import backgroundHeadlineContainer from '../../media/headline-background.jpg';
+import backgroundSellerContainer from '../../media/seller-container-background.jpg';
+import '../../css/Home.css';
 import { useHistory } from 'react-router-dom';
 
 export default function Home() {

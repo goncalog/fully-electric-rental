@@ -1,10 +1,10 @@
 import React from 'react';
-import MainHeadline from './support_components/MainHeadline';
-import Input from './support_components/Input';
-import Select from './support_components/Select';
-import CallToActionButton from './support_components/CallToActionButton';
-import EVAdditionalFeatures from './support_components/EVAdditionalFeatures';
-import '../css/EVForm.css';
+import MainHeadline from '../support/MainHeadline';
+import Input from '../support/Input';
+import Select from '../support/Select';
+import CallToActionButton from '../support/CallToActionButton';
+import EVAdditionalFeatures from '../support/EVAdditionalFeatures';
+import '../../css/EVForm.css';
 
 export default class EVForm extends React.Component {
     constructor(props) {

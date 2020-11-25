@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../support_components/Input';
+import Input from './Input';
 
 export default function MinMax(props) {
     function handleTextChange(type, text) {

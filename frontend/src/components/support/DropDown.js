@@ -1,7 +1,7 @@
 import React from 'react';
-import MinMax from '../support_components/MinMax';
-import CheckBox from '../support_components/CheckBox';
-import Option from '../support_components/Option';
+import MinMax from './MinMax';
+import CheckBox from './CheckBox';
+import Option from './Option';
 
 export default function DropDown(props) {
     function handleButtonClick() {

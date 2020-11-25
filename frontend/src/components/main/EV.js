@@ -1,15 +1,15 @@
 import React from 'react';
-import EVTitle from './support_components/EVTitle';
-import EVPrice from './support_components/EVPrice';
-import SellerContact from './support_components/SellerContact';
-import EVDetail from './support_components/EVDetail';
-import formatRating from '../utils/formatRating';
-import formatMiles from '../utils/formatMiles';
-import formatNumber from '../utils/formatNumber';
-import getFullEvTitle from '../utils/getFullEvTitle';
-import getEvFeaturesArray from '../utils/getEvFeaturesArray';
-import getImagePosForSlider from '../utils/getImagePosForSlider';
-import '../css/EV.css';
+import EVTitle from '../support/EVTitle';
+import EVPrice from '../support/EVPrice';
+import SellerContact from '../support/SellerContact';
+import EVDetail from '../support/EVDetail';
+import formatRating from '../../utils/formatRating';
+import formatMiles from '../../utils/formatMiles';
+import formatNumber from '../../utils/formatNumber';
+import getFullEvTitle from '../../utils/getFullEvTitle';
+import getEvFeaturesArray from '../../utils/getEvFeaturesArray';
+import getImagePosForSlider from '../../utils/getImagePosForSlider';
+import '../../css/EV.css';
 
 export default class EV extends React.Component {
     constructor(props) {

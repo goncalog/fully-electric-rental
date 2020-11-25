@@ -7,7 +7,7 @@ import Auth from './Auth';
 import Navigation from './Navigation';
 import EV from './EV';
 import LogOut from './LogOut';
-import withAuth from './support_components/withAuth';
+import withAuth from '../support/withAuth';
 import SellerEVs from './SellerEVs';
 import SellerEV from './SellerEV';
 import EVForm from './EVForm';

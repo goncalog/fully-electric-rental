@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import CallToActionButton from './support_components/CallToActionButton';
+import CallToActionButton from '../support/CallToActionButton';
 import EV from './EV';
-import '../css/SellerEV.css';
+import '../../css/SellerEV.css';
 
 export default function SellerEV(props) {
     const handleUpdateButtonClick = () => {

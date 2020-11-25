@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../media/logo.svg';
-import '../css/Navigation.css';
+import logo from '../../media/logo.svg';
+import '../../css/Navigation.css';
 import { Link, withRouter } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';

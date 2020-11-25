@@ -1,11 +1,11 @@
 {
-  "name": "fully-electric-backend",
+  "name": "backend",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "serverstart": "DEBUG=fully-electric-backend:* npm run devstart",
+    "serverstart": "DEBUG=backend:* npm run devstart",
     "test": "mocha"
   },
   "dependencies": {

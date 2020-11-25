@@ -1,12 +1,12 @@
 import React from 'react';
-import Filters from './support_components/Filters';
-import EVsContainer from './support_components/EVsContainer';
-import getFullEvTitle from '../utils/getFullEvTitle';
-import '../css/EVs.css';
-import formatMiles from '../utils/formatMiles';
-import formatNumber from '../utils/formatNumber';
-import applyFilters from '../utils/applyFilters';
-import applySort from '../utils/applySort';
+import Filters from '../support/Filters';
+import EVsContainer from '../support/EVsContainer';
+import getFullEvTitle from '../../utils/getFullEvTitle';
+import '../../css/EVs.css';
+import formatMiles from '../../utils/formatMiles';
+import formatNumber from '../../utils/formatNumber';
+import applyFilters from '../../utils/applyFilters';
+import applySort from '../../utils/applySort';
 
 export default class EVs extends React.Component {
     constructor(props) {

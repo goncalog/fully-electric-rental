@@ -1,5 +1,5 @@
 import React from 'react';
-import DropDown from '../support_components/DropDown';
+import DropDown from './DropDown';
 
 export default function Filters(props) {
     function handleClick(property) {

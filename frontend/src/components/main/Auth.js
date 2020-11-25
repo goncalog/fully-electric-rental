@@ -1,9 +1,9 @@
 import React from 'react';
-import MainHeadline from './support_components/MainHeadline';
-import Input from './support_components/Input';
-import CallToActionButton from './support_components/CallToActionButton';
-import validateEmail from '../utils/validateEmail';
-import '../css/Auth.css';
+import MainHeadline from '../support/MainHeadline';
+import Input from '../support/Input';
+import CallToActionButton from '../support/CallToActionButton';
+import validateEmail from '../../utils/validateEmail';
+import '../../css/Auth.css';
 
 export default class Auth extends React.Component {
     constructor(props) {

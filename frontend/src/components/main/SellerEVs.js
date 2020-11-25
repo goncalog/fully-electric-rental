@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import MainHeadline from './support_components/MainHeadline';
-import CallToActionButton from './support_components/CallToActionButton';
+import MainHeadline from '../support/MainHeadline';
+import CallToActionButton from '../support/CallToActionButton';
 import EVs from './EVs';
-import '../css/SellerEVs.css';
+import '../../css/SellerEVs.css';
 
 export default function SellerEVs(props) {
     function handleButtonClick() {
