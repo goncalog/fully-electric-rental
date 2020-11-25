@@ -35,10 +35,10 @@ describe('Home', () => {
     test('renders HeadlineContainer with passed properties', () => {
         const shallowWrapper = home().find(HeadlineContainer);
         expect(shallowWrapper.prop('backgroundImagePath')).toBe('headline-background.jpg');
-        expect(shallowWrapper.prop('mainHeadline')).toBe('Find your dream EV');
+        expect(shallowWrapper.prop('mainHeadline')).toBe('Rent an electric car to drive for Uber, Ola & Bolt');
         expect(shallowWrapper.prop('secondaryHeadline'))
-                .toBe('Test drive it for one week before purchasing - it\'s FREE');
-        expect(shallowWrapper.prop('callToActionText')).toBe('Let\'s GO!');
+                .toBe('We aggregate the best deals from all PCO rental companies');
+        expect(shallowWrapper.prop('callToActionText')).toBe('Let\'s DRIVE!');
         expect(Object.keys(shallowWrapper.props())).toContain('onButtonClick');
     });
 
@@ -49,7 +49,7 @@ describe('Home', () => {
     test('renders BenefitsContainer with passed properties', () => {
         const shallowWrapper = home().find(BenefitsContainer);
         expect(shallowWrapper.prop('benefits').length).toEqual(3);
-        expect(shallowWrapper.prop('callToActionText')).toBe('Let\'s GO!');
+        expect(shallowWrapper.prop('callToActionText')).toBe('Let\'s DRIVE!');
         expect(Object.keys(shallowWrapper.props())).toContain('onButtonClick');
     });
 
@@ -61,9 +61,9 @@ describe('Home', () => {
         const shallowWrapper = home().find(SellerContainer);
         expect(shallowWrapper.length).toEqual(1);
         expect(shallowWrapper.prop('backgroundImagePath')).toBe('seller-container-background.jpg');
-        expect(shallowWrapper.prop('mainHeadline')).toBe('Sell your EV for more');
+        expect(shallowWrapper.prop('mainHeadline')).toBe('Rent more cars, faster');
         expect(shallowWrapper.prop('secondaryHeadline'))
-                .toBe('Get £1000 to £3000 more than if you sold to a car dealer');
+                .toBe('We help PCO rental companies find the best drivers for their EV fleet');
         expect(shallowWrapper.prop('callToActionText')).toBe('Let\'s SELL!');
         expect(Object.keys(shallowWrapper.props())).toContain('onButtonClick');
     });

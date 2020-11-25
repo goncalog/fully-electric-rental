@@ -18,11 +18,12 @@ export default function Home() {
         history.push('/seller/signup');
     }
     
+    const driverCallToActionText = 'Let\'s DRIVE!';
     const headlineProps = {
         backgroundImagePath: backgroundHeadlineContainer,
-        mainHeadline: 'Find your dream EV',
-        secondaryHeadline: 'Test drive it for one week before purchasing - it\'s FREE',
-        callToActionText: 'Let\'s GO!',
+        mainHeadline: 'Rent an electric car to drive for Uber, Ola & Bolt', // Electric car and EV have more Google searches than electric vehicle and EVs
+        secondaryHeadline: 'We aggregate the best deals from all PCO rental companies',
+        callToActionText: driverCallToActionText,
         onButtonClick: onEvsButtonClick,
     }
 
@@ -30,25 +31,25 @@ export default function Home() {
         benefits: [
             { 
                 title: 'Best Price',
-                text: 'Find the best EV deals available online',
+                text: 'Find the best rental deals available online',
             },
             { 
-                title: 'Most Convenient',
-                text: 'We bring it to your home at the time of your preference',
+                title: 'Most Efficient',
+                text: 'An electric car will save you thousands in fuel costs!', // Electric car and EV have more Google searches than electric vehicle and EVs
             },
             { 
-                title: 'No Risk',
-                text: 'Test drive your dream EV for one week before deciding if it\'s right for you - completely FREE!',
+                title: 'Great Quality',
+                text: 'Rent only from the PCO car hire companies with the best ratings',
             },
         ],
-        callToActionText: 'Let\'s GO!',
+        callToActionText: driverCallToActionText,
         onButtonClick: onEvsButtonClick,
     }
 
     const sellerProps = {
         backgroundImagePath: backgroundSellerContainer,
-        mainHeadline: 'Sell your EV for more',
-        secondaryHeadline: 'Get £1000 to £3000 more than if you sold to a car dealer',
+        mainHeadline: 'Rent more cars, faster',
+        secondaryHeadline: 'We help PCO rental companies find the best drivers for their EV fleet', // Electric car and EV have more Google searches than electric vehicle and EVs
         callToActionText: 'Let\'s SELL!',
         onButtonClick: onSellButtonClick,
     }
