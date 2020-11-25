@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpandButton from '../../components/support_components/ExpandButton';
+import ExpandButton from '../../../components/support/ExpandButton';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

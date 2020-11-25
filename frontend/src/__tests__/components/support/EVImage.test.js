@@ -1,5 +1,5 @@
 import React from 'react';
-import EVImage from '../../components/support_components/EVImage';
+import EVImage from '../../../components/support/EVImage';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,6 +1,6 @@
 import React from 'react';
-import EVsContainer from '../../components/support_components/EVsContainer';
-import EVIntroCard from '../../components/support_components/EVIntroCard';
+import EVsContainer from '../../../components/support/EVsContainer';
+import EVIntroCard from '../../../components/support/EVIntroCard';
 import { Link } from 'react-router-dom';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

@@ -1,9 +1,9 @@
 import React from 'react';
-import Navigation from '../components/Navigation';
-import AppRouter from '../components/AppRouter';
-import Home from '../components/Home';
-import EV from '../components/EV';
-import Contact from '../components/Contact';
+import Navigation from '../../../components/main/Navigation';
+import AppRouter from '../../../components/main/AppRouter';
+import Home from '../../../components/main/Home';
+import EV from '../../../components/main/EV';
+import Contact from '../../../components/main/Contact';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

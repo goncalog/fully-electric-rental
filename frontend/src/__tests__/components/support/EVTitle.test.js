@@ -1,5 +1,5 @@
 import React from 'react';
-import EVTitle from '../../components/support_components/EVTitle';
+import EVTitle from '../../../components/support/EVTitle';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

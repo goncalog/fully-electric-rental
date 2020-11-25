@@ -1,7 +1,7 @@
 import React from 'react';
-import Headline from '../../components/support_components/Headline';
-import CallToActionButton from '../../components/support_components/CallToActionButton';
-import SellerContainer from '../../components/support_components/SellerContainer';
+import Headline from '../../../components/support/Headline';
+import CallToActionButton from '../../../components/support/CallToActionButton';
+import SellerContainer from '../../../components/support/SellerContainer';
 import { configure, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../components/Navigation';
+import Navigation from '../../../components/main/Navigation';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { shallow, configure } from 'enzyme';
@@ -13,7 +13,7 @@ it('renders one child', () => {
 
 it('renders Title link correctly', () => {
     const { getByText } = render(<Router><Navigation /></Router>);
-    const titleLink = getByText(/Fully Electric/);
+    const titleLink = getByText(/FullyElectric/);
     expect(titleLink).toBeInTheDocument();
     expect(titleLink.getAttribute('href')).toBe('/');
 });
@@ -48,7 +48,7 @@ it('renders Log in link correctly', () => {
 
 it('renders the logo correctly', () => {
     const { getByText } = render(<Router><Navigation /></Router>);
-    const titleLink = getByText(/Fully Electric/);
+    const titleLink = getByText(/FullyElectric/);
     expect(titleLink.firstChild.getAttribute('class')).toBe('App-logo');
     expect(titleLink.firstChild.getAttribute('src')).toBe('logo.svg');
 });

@@ -1,6 +1,5 @@
 import React from 'react';
-import MainHeadline from '../../components/support_components/MainHeadline';
-import Headline from '../../components/support_components/Headline';
+import MainHeadline from '../../../components/support/MainHeadline';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

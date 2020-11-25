@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from '../components/Home';
-import HeadlineContainer from '../components/support_components/HeadlineContainer';
-import BenefitsContainer from '../components/support_components/BenefitsContainer';
-import SellerContainer from '../components/support_components/SellerContainer';
+import Home from '../../../components/main/Home';
+import HeadlineContainer from '../../../components/support/HeadlineContainer';
+import BenefitsContainer from '../../../components/support/BenefitsContainer';
+import SellerContainer from '../../../components/support/SellerContainer';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

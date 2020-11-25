@@ -1,6 +1,6 @@
 import React from 'react';
-import SellerRating from '../../components/support_components/SellerRating';
-import formatRating from '../../utils/formatRating';
+import SellerRating from '../../../components/support/SellerRating';
+import formatRating from '../../../utils/formatRating';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

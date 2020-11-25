@@ -1,5 +1,5 @@
 import React from 'react';
-import Benefit from '../../components/support_components/Benefit.js';
+import Benefit from '../../../components/support/Benefit';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

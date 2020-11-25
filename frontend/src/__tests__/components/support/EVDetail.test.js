@@ -1,8 +1,8 @@
 import React from 'react';
-import EVDetail from '../../components/support_components/EVDetail';
-import EVImageSlider from '../../components/support_components/EVImageSlider';
-import EVKeyFeatures from '../../components/support_components/EVKeyFeatures';
-import EVAdditionalSectionsContainer from '../../components/support_components/EVAdditionalSectionsContainer';
+import EVDetail from '../../../components/support/EVDetail';
+import EVImageSlider from '../../../components/support/EVImageSlider';
+import EVKeyFeatures from '../../../components/support/EVKeyFeatures';
+import EVAdditionalSectionsContainer from '../../../components/support/EVAdditionalSectionsContainer';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

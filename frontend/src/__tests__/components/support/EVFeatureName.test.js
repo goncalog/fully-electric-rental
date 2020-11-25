@@ -1,5 +1,5 @@
 import React from 'react';
-import EVFeatureName from '../../components/support_components/EVFeatureName';
+import EVFeatureName from '../../../components/support/EVFeatureName';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

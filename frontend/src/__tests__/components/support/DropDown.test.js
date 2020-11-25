@@ -1,8 +1,8 @@
 import React from 'react';
-import DropDown from '../../components/support_components/DropDown';
-import MinMax from '../../components/support_components/MinMax';
-import CheckBox from '../../components/support_components/CheckBox';
-import Option from '../../components/support_components/Option';
+import DropDown from '../../../components/support/DropDown';
+import MinMax from '../../../components/support/MinMax';
+import CheckBox from '../../../components/support/CheckBox';
+import Option from '../../../components/support/Option';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

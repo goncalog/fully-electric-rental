@@ -1,10 +1,10 @@
 import React from 'react';
-import EVForm from '../components/EVForm';
-import MainHeadline from '../components/support_components/MainHeadline';
-import CallToActionButton from '../components/support_components/CallToActionButton';
-import Input from '../components/support_components/Input';
-import Select from '../components/support_components/Select';
-import EVAdditionalFeatures from '../components/support_components/EVAdditionalFeatures';
+import EVForm from '../../../components/main/EVForm';
+import MainHeadline from '../../../components/support/MainHeadline';
+import CallToActionButton from '../../../components/support/CallToActionButton';
+import Input from '../../../components/support/Input';
+import Select from '../../../components/support/Select';
+import EVAdditionalFeatures from '../../../components/support/EVAdditionalFeatures';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,5 +1,5 @@
 import React from 'react';
-import LogOut from '../components/LogOut';
+import LogOut from '../../../components/main/LogOut';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

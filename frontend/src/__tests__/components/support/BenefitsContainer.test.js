@@ -1,7 +1,7 @@
 import React from 'react';
-import BenefitsContainer from '../../components/support_components/BenefitsContainer';
-import Benefit from '../../components/support_components/Benefit';
-import CallToActionButton from '../../components/support_components/CallToActionButton';
+import BenefitsContainer from '../../../components/support/BenefitsContainer';
+import Benefit from '../../../components/support/Benefit';
+import CallToActionButton from '../../../components/support/CallToActionButton';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

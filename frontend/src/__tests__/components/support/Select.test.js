@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from '../../components/support_components/Select';
+import Select from '../../../components/support/Select';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

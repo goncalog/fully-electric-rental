@@ -1,6 +1,6 @@
 import React from 'react';
-import EVPrice from '../../components/support_components/EVPrice';
-import formatPrice from '../../utils/formatPrice';
+import EVPrice from '../../../components/support/EVPrice';
+import formatPrice from '../../../utils/formatPrice';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

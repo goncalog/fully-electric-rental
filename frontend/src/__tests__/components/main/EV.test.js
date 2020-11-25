@@ -1,9 +1,9 @@
 import React from 'react';
-import EV from '../components/EV';
-import EVTitle from '../components/support_components/EVTitle';
-import EVPrice from '../components/support_components/EVPrice';
-import SellerContact from '../components/support_components/SellerContact';
-import EVDetail from '../components/support_components/EVDetail';
+import EV from '../../../components/main/EV';
+import EVTitle from '../../../components/support/EVTitle';
+import EVPrice from '../../../components/support/EVPrice';
+import SellerContact from '../../../components/support/SellerContact';
+import EVDetail from '../../../components/support/EVDetail';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

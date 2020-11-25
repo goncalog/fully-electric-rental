@@ -1,8 +1,8 @@
 import React from 'react';
-import Auth from '../components/Auth';
-import MainHeadline from '../components/support_components/MainHeadline';
-import Input from '../components/support_components/Input';
-import CallToActionButton from '../components/support_components/CallToActionButton';
+import Auth from '../../../components/main/Auth';
+import MainHeadline from '../../../components/support/MainHeadline';
+import Input from '../../../components/support/Input';
+import CallToActionButton from '../../../components/support/CallToActionButton';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

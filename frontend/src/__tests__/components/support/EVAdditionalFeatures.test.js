@@ -1,5 +1,5 @@
 import React from 'react';
-import EVAdditionalFeatures from '../../components/support_components/EVAdditionalFeatures';
+import EVAdditionalFeatures from '../../../components/support/EVAdditionalFeatures';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

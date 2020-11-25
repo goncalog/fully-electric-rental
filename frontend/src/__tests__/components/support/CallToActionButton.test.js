@@ -1,5 +1,5 @@
 import React from 'react';
-import CallToActionButton from '../../components/support_components/CallToActionButton';
+import CallToActionButton from '../../../components/support/CallToActionButton';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

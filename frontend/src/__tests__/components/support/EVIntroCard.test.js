@@ -1,9 +1,9 @@
 import React from 'react';
-import EVIntroCard from '../../components/support_components/EVIntroCard';
-import EVImage from '../../components/support_components/EVImage';
-import EVTitle from '../../components/support_components/EVTitle';
-import EVPrice from '../../components/support_components/EVPrice';
-import EVKeyFeatures from '../../components/support_components/EVKeyFeatures';
+import EVIntroCard from '../../../components/support/EVIntroCard';
+import EVImage from '../../../components/support/EVImage';
+import EVTitle from '../../../components/support/EVTitle';
+import EVPrice from '../../../components/support/EVPrice';
+import EVKeyFeatures from '../../../components/support/EVKeyFeatures';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

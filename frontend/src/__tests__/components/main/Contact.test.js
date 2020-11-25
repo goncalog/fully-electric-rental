@@ -1,7 +1,7 @@
 import React from 'react';
-import Contact from '../components/Contact';
-import ContactForm from '../components/support_components/ContactForm';
-import CallToActionButton from '../components/support_components/CallToActionButton';
+import Contact from '../../../components/main/Contact';
+import ContactForm from '../../../components/support/ContactForm';
+import CallToActionButton from '../../../components/support/CallToActionButton';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

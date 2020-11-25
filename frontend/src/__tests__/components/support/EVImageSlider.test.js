@@ -1,7 +1,7 @@
 import React from 'react';
-import EVImageSlider from '../../components/support_components/EVImageSlider';
-import EVImage from '../../components/support_components/EVImage';
-import ChangeImageButton from '../../components/support_components/ChangeImageButton';
+import EVImageSlider from '../../../components/support/EVImageSlider';
+import EVImage from '../../../components/support/EVImage';
+import ChangeImageButton from '../../../components/support/ChangeImageButton';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,7 +1,7 @@
 import React from 'react';
-import EVs from '../components/EVs';
-import Filters from '../components/support_components/Filters';
-import EVsContainer from '../components/support_components/EVsContainer';
+import EVs from '../../../components/main/EVs';
+import Filters from '../../../components/support/Filters';
+import EVsContainer from '../../../components/support/EVsContainer';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

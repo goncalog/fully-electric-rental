@@ -1,5 +1,5 @@
 import React from 'react';
-import SellerName from '../../components/support_components/SellerName';
+import SellerName from '../../../components/support/SellerName';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,8 +1,8 @@
 import React from 'react';
-import EVAdditionalSection from '../../components/support_components/EVAdditionalSection';
-import EVAdditionalSectionName from '../../components/support_components/EVAdditionalSectionName';
-import ExpandButton from '../../components/support_components/ExpandButton';
-import EVAdditionalFeatures from '../../components/support_components/EVAdditionalFeatures';
+import EVAdditionalSection from '../../../components/support/EVAdditionalSection';
+import EVAdditionalSectionName from '../../../components/support/EVAdditionalSectionName';
+import ExpandButton from '../../../components/support/ExpandButton';
+import EVAdditionalFeatures from '../../../components/support/EVAdditionalFeatures';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,7 +1,7 @@
 import React from 'react';
-import SellerEV from '../components/SellerEV';
-import CallToActionButton from '../components/support_components/CallToActionButton';
-import EV from '../components/EV';
+import SellerEV from '../../../components/main/SellerEV';
+import CallToActionButton from '../../../components/support/CallToActionButton';
+import EV from '../../../components/main/EV';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

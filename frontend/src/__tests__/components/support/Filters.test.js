@@ -1,6 +1,6 @@
 import React from 'react';
-import Filters from '../../components/support_components/Filters';
-import DropDown from '../../components/support_components/DropDown';
+import Filters from '../../../components/support/Filters';
+import DropDown from '../../../components/support/DropDown';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

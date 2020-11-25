@@ -1,7 +1,7 @@
 import React from 'react';
-import Headline from '../../components/support_components/Headline';
-import MainHeadline from '../../components/support_components/MainHeadline';
-import SecondaryHeadline from '../../components/support_components/SecondaryHeadline';
+import Headline from '../../../components/support/Headline';
+import MainHeadline from '../../../components/support/MainHeadline';
+import SecondaryHeadline from '../../../components/support/SecondaryHeadline';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

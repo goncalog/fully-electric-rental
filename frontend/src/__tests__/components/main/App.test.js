@@ -1,7 +1,7 @@
 import React from 'react';
-import App from '../components/App';
-import Footer from '../components/Footer';
-import AppRouter from '../components/AppRouter';
+import App from '../../../components/main/App'
+import Footer from '../../../components/main/Footer';
+import AppRouter from '../../../components/main/AppRouter';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

@@ -1,8 +1,8 @@
 import React from 'react';
-import SellerContact from '../../components/support_components/SellerContact';
-import SellerName from '../../components/support_components/SellerName';
-import SellerRating from '../../components/support_components/SellerRating';
-import CallToActionButton from '../../components/support_components/CallToActionButton';
+import SellerContact from '../../../components/support/SellerContact';
+import SellerName from '../../../components/support/SellerName';
+import SellerRating from '../../../components/support/SellerRating';
+import CallToActionButton from '../../../components/support/CallToActionButton';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

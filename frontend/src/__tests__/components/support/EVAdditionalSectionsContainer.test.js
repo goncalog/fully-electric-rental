@@ -1,6 +1,6 @@
 import React from 'react';
-import EVAdditionalSectionsContainer from '../../components/support_components/EVAdditionalSectionsContainer';
-import EVAdditionalSection from '../../components/support_components/EVAdditionalSection';
+import EVAdditionalSectionsContainer from '../../../components/support/EVAdditionalSectionsContainer';
+import EVAdditionalSection from '../../../components/support/EVAdditionalSection';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });

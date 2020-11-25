@@ -1,5 +1,5 @@
 import React from 'react';
-import ChangeImageButton from '../../components/support_components/ChangeImageButton';
+import ChangeImageButton from '../../../components/support/ChangeImageButton';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
