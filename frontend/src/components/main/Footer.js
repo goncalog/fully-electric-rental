@@ -9,7 +9,7 @@ function Footer() {
             <footer className="py-2 bg-dark">
                 <div className="container">
                     <p className="m-0 text-center text-white">
-                        Copyright &copy; { year } Fully Electric
+                        Copyright &copy; { year } FullyElectric
                     </p>
                 </div>
             </footer>
