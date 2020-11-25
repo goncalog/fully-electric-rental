@@ -38,11 +38,9 @@ function Navigation(props) {
                                 }`}
                             >
                                 <Link 
-                                    className="nav-link" 
-                                    to="/evs" 
-                                    onClick={() => setExpanded(false)}
+                                    className="nav-link" to="/evs" onClick={() => setExpanded(false)}
                                 >
-                                    Buy
+                                    Drivers
                                 </Link>
                             </Nav.Item>
 
@@ -58,7 +56,7 @@ function Navigation(props) {
                                         to={`/seller/${props.userId}/evs`}
                                         onClick={() => setExpanded(false)}
                                     >
-                                        Sell
+                                        Owners
                                     </Link>
                                 </Nav.Item>
                             ) : (
@@ -72,7 +70,7 @@ function Navigation(props) {
                                         to="/seller/signup" 
                                         onClick={() => setExpanded(false)}
                                     >
-                                        Sell
+                                        Owners
                                     </Link>
                                 </Nav.Item>
                             )}
