@@ -13,7 +13,7 @@ function Navigation(props) {
                 <div className="container">
                     <Link className="navbar-brand" to="/" onClick={() => setExpanded(false)}>
                         <img src={logo} className="App-logo" alt="logo" />
-                        Fully Electric
+                        FullyElectric
                     </Link>
                     <Navbar.Toggle 
                         onClick={() => setExpanded(expanded ? false : "expanded")} 
