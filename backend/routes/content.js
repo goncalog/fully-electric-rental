@@ -4,7 +4,7 @@ const evController = require('../controllers/evController');
 const makeController = require('../controllers/makeController');
 const modelController = require('../controllers/modelController');
 const locationController = require('../controllers/locationController');
-const sellerController = require('../controllers/sellerController');
+const ownerController = require('../controllers/ownerController');
 const withAuth = require('../auth/authMiddleware');
 
 // GET request for home page
@@ -37,38 +37,38 @@ router.get('/models', modelController.getModels);
 // GET request for list of all locations
 router.get('/locations', locationController.getLocations);
 
-// POST request to sign up seller
-router.post('/seller/signup', sellerController.signUp);
+// POST request to sign up owner
+router.post('/owner/signup', ownerController.signUp);
 
-// POST request to log in seller
-router.post('/seller/login', sellerController.logIn);
+// POST request to log in owner
+router.post('/owner/login', ownerController.logIn);
 
-// POST request to log out seller
-router.post('/seller/logout', sellerController.logOut);
+// POST request to log out owner
+router.post('/owner/logout', ownerController.logOut);
 
-// GET request to list of the seller's evs
-router.get('/seller/evs', withAuth, sellerController.getEvs);
+// GET request to list of the owner's evs
+router.get('/owner/evs', withAuth, ownerController.getEvs);
 
 // GET request to check log in status
-router.get('/seller/checkAuth', withAuth, sellerController.checkAuth);
+router.get('/owner/checkAuth', withAuth, ownerController.checkAuth);
 
-// GET request to get a seller's list of evs for sale
-router.get('/seller/:id/evs', sellerController.getSellerEvs);
+// GET request to get a owner's list of evs for sale
+router.get('/owner/:id/evs', ownerController.getOwnerEvs);
 
 // POST request to create new ev
-router.post('/seller/:id/ev/create', withAuth, sellerController.postCreateEv);
+router.post('/owner/:id/ev/create', withAuth, ownerController.postCreateEv);
 
 // GET request to update ev
-router.get('/seller/:id/ev/:id/update', withAuth, sellerController.getUpdateEv);
+router.get('/owner/:id/ev/:id/update', withAuth, ownerController.getUpdateEv);
 
 // PUT request to update ev
-router.put('/seller/:id/ev/:id/update', withAuth, sellerController.putUpdateEv);
+router.put('/owner/:id/ev/:id/update', withAuth, ownerController.putUpdateEv);
 
 // DELETE request to delete ev
-router.delete('/seller/:id/ev/:id/delete', withAuth, sellerController.deleteEv);
+router.delete('/owner/:id/ev/:id/delete', withAuth, ownerController.deleteEv);
 
-// POST request to contact seller
-router.post('/seller/:id/contact', sellerController.postContactSeller);
+// POST request to contact owner
+router.post('/owner/:id/contact', ownerController.postContactOwner);
 
 // Placeholder code for testing POST routes
 router.get('/test', evController.getTest);
