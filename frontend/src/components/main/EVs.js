@@ -16,7 +16,6 @@ export default class EVs extends React.Component {
             filteredEvs: [],
             make: { property: 'make', title: 'Make', options: [], },
             price: { property: 'price', title: 'Price', min: "", max: "",},
-            mileage: { property: 'mileage', title: 'Mileage', min: "", max: "",},
             range: { property: 'range', title: 'Range', min: "", max: "",},
             extras: { property: 'extras', title: 'Extras', options: [{ name: 'FSD' }], },
             sort: { 
@@ -28,7 +27,7 @@ export default class EVs extends React.Component {
                 ], 
             },
             filterVisibility: { 
-                make: false, price: false, mileage: false, range: false, extras: false, sort: false 
+                make: false, price: false, range: false, extras: false, sort: false 
             },
         };
         this.handleClick = this.handleClick.bind(this);
@@ -87,7 +86,6 @@ export default class EVs extends React.Component {
         if (
             prevState.make !== this.state.make ||
             prevState.price !== this.state.price ||
-            prevState.mileage !== this.state.mileage ||
             prevState.range !== this.state.range ||
             prevState.extras !== this.state.extras ||
             prevState.sort !== this.state.sort
@@ -126,7 +124,6 @@ export default class EVs extends React.Component {
                 <Filters 
                     make={this.state.make}
                     price={this.state.price}
-                    mileage={this.state.mileage}
                     range={this.state.range}
                     extras={this.state.extras}
                     sort={this.state.sort}

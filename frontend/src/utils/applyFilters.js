@@ -13,13 +13,6 @@ export default function applyFilters(state) {
         filteredEvs = filteredEvs.filter((ev) => (ev.price_per_day <= parseInt(state.price.max)));
     }
 
-    if (state.mileage.min !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.mileage >= parseInt(state.mileage.min)));
-    }
-    if (state.mileage.max !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.mileage <= parseInt(state.mileage.max)));
-    }
-
     if (state.range.min !== "") {
         filteredEvs = filteredEvs.filter((ev) => (ev.model.charging.range_miles >= parseInt(state.range.min)));
     }
