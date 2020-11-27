@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const ModelSchema = new Schema({
@@ -18,7 +17,6 @@ const ModelSchema = new Schema({
         charge_cost: { type: Number, required: true, min: 0 },
         hours_to_charge: { type: Number, required: true, min: 0 },
     },
-    original_msrp: { type: Number, required: true, min: 0 },
     rating: { type: Number, required: true, min: 0, max: 5 },
 });
 
