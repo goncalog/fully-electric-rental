@@ -33,7 +33,7 @@ export default class EVs extends React.Component {
                 title: 'Sort', 
                 options: [
                     { name: 'Lowest Price', checked: true }, { name: 'Highest Price' }, 
-                    { name: 'Lowest Mileage' }, { name: 'Highest Range' }, 
+                    { name: 'Highest Range' }, 
                 ], 
             },
             filterVisibility: { 
