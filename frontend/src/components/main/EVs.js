@@ -17,7 +17,17 @@ export default class EVs extends React.Component {
             make: { property: 'make', title: 'Make', options: [], },
             price: { property: 'price', title: 'Price', min: "", max: "",},
             range: { property: 'range', title: 'Range', min: "", max: "",},
-            extras: { property: 'extras', title: 'Extras', options: [{ name: 'FSD' }], },
+            included: { 
+                property: 'included', 
+                title: 'Included', 
+                options: [
+                    { name: 'Insurance' }, 
+                    { name: 'Maintenance' }, 
+                    { name: 'MOT' },
+                    { name: 'Road Assistance' },
+                    { name: 'Fuel' },
+                ], 
+            },
             sort: { 
                 property: 'sort', 
                 title: 'Sort', 
@@ -27,7 +37,7 @@ export default class EVs extends React.Component {
                 ], 
             },
             filterVisibility: { 
-                make: false, price: false, range: false, extras: false, sort: false 
+                make: false, price: false, range: false, included: false, sort: false 
             },
         };
         this.handleClick = this.handleClick.bind(this);
@@ -87,7 +97,7 @@ export default class EVs extends React.Component {
             prevState.make !== this.state.make ||
             prevState.price !== this.state.price ||
             prevState.range !== this.state.range ||
-            prevState.extras !== this.state.extras ||
+            prevState.included !== this.state.included ||
             prevState.sort !== this.state.sort
         ) {
             this.setState({ filteredEvs: applySort(applyFilters(this.state), this.state.sort) });
@@ -125,7 +135,7 @@ export default class EVs extends React.Component {
                     make={this.state.make}
                     price={this.state.price}
                     range={this.state.range}
-                    extras={this.state.extras}
+                    included={this.state.included}
                     sort={this.state.sort}
                     visibility={this.state.filterVisibility}
                     onClick={this.handleClick}

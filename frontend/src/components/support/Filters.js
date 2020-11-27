@@ -45,11 +45,11 @@ export default function Filters(props) {
                 onTextChange={handleTextChange}
             />
             <DropDown 
-                property={props.extras.property}
-                title={props.extras.title}
+                property={props.included.property}
+                title={props.included.title}
                 onClick={handleClick}
-                options={props.extras.options}
-                visibility={props.visibility.extras}
+                options={props.included.options}
+                visibility={props.visibility.included}
                 onOptionChange={handleOptionChange}
             />
             <DropDown

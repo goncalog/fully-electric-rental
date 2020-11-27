@@ -20,9 +20,9 @@ export default function applyFilters(state) {
         filteredEvs = filteredEvs.filter((ev) => (ev.model.charging.range_miles <= parseInt(state.range.max)));
     }
 
-    state.extras.options.forEach((option) => {
+    state.included.options.forEach((option) => {
         if (option.checked) {
-            filteredEvs = filteredEvs.filter((ev) => ev.equipment_and_options.includes(option.name));
+            filteredEvs = filteredEvs.filter((ev) => ev.included_extras.includes(option.name));
         }
     });
 

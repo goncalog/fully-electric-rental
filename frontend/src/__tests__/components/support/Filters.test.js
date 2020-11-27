@@ -27,7 +27,7 @@ describe('Filters', () => {
             make: "Text to test make property",
             price: "Text to test price property",
             range: "Text to test range property",
-            extras: "Text to test extras property",
+            included: "Text to test included property",
             sort: "Text to test sort property",
             visibility: "Text to test visibility property",
             onClick: mockFunction,
