@@ -101,7 +101,7 @@ export default class EVs extends React.Component {
             let ev = {
                 imageUrls: item.image_urls,
                 title: getFullEvTitle(item),
-                price: item.price,
+                price: item.price_per_day,
                 evFeatures: [
                     { 
                         name: 'Year',
