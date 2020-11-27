@@ -7,17 +7,10 @@ export default function applyFilters(state) {
     let filteredEvs = state.evs.slice().filter((ev) => filteredMakes.includes(ev.make._id));
 
     if (state.price.min !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.price >= parseInt(state.price.min)));
+        filteredEvs = filteredEvs.filter((ev) => (ev.price_per_day >= parseInt(state.price.min)));
     }
     if (state.price.max !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.price <= parseInt(state.price.max)));
-    }
-
-    if (state.mileage.min !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.mileage >= parseInt(state.mileage.min)));
-    }
-    if (state.mileage.max !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.mileage <= parseInt(state.mileage.max)));
+        filteredEvs = filteredEvs.filter((ev) => (ev.price_per_day <= parseInt(state.price.max)));
     }
 
     if (state.range.min !== "") {
@@ -27,9 +20,9 @@ export default function applyFilters(state) {
         filteredEvs = filteredEvs.filter((ev) => (ev.model.charging.range_miles <= parseInt(state.range.max)));
     }
 
-    state.extras.options.forEach((option) => {
+    state.included.options.forEach((option) => {
         if (option.checked) {
-            filteredEvs = filteredEvs.filter((ev) => ev.equipment_and_options.includes(option.name));
+            filteredEvs = filteredEvs.filter((ev) => ev.included_extras.includes(option.name));
         }
     });
 

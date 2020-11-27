@@ -36,16 +36,6 @@ export default function Filters(props) {
             />
             <DropDown
                 type="minMax" 
-                property={props.mileage.property}
-                title={props.mileage.title}
-                onClick={handleClick}
-                visibility={props.visibility.mileage}
-                min={props.mileage.min}
-                max={props.mileage.max}
-                onTextChange={handleTextChange}
-            />
-            <DropDown
-                type="minMax" 
                 property={props.range.property}
                 title={props.range.title}
                 onClick={handleClick}
@@ -55,11 +45,11 @@ export default function Filters(props) {
                 onTextChange={handleTextChange}
             />
             <DropDown 
-                property={props.extras.property}
-                title={props.extras.title}
+                property={props.included.property}
+                title={props.included.title}
                 onClick={handleClick}
-                options={props.extras.options}
-                visibility={props.visibility.extras}
+                options={props.included.options}
+                visibility={props.visibility.included}
                 onOptionChange={handleOptionChange}
             />
             <DropDown
