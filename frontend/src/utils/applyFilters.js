@@ -7,10 +7,10 @@ export default function applyFilters(state) {
     let filteredEvs = state.evs.slice().filter((ev) => filteredMakes.includes(ev.make._id));
 
     if (state.price.min !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.price >= parseInt(state.price.min)));
+        filteredEvs = filteredEvs.filter((ev) => (ev.price_per_day >= parseInt(state.price.min)));
     }
     if (state.price.max !== "") {
-        filteredEvs = filteredEvs.filter((ev) => (ev.price <= parseInt(state.price.max)));
+        filteredEvs = filteredEvs.filter((ev) => (ev.price_per_day <= parseInt(state.price.max)));
     }
 
     if (state.mileage.min !== "") {
