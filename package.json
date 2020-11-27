@@ -1,17 +1,17 @@
 {
-  "name": "fully-electric",
+  "name": "fully-electric-rental",
   "version": "0.0.0",
   "engines": {
     "node": "14.7.0"
   },
   "private": true,
   "scripts": {
-    "start": "node ./fully-electric-backend/bin/www",
-    "heroku-postbuild": "cd fully-electric-backend && npm install && cd .. && cd fully-electric-frontend && npm install && npm run build"
+    "start": "node ./backend/bin/www",
+    "heroku-postbuild": "cd backend && npm install && cd .. && cd frontend && npm install && npm run build"
   },
   "cacheDirectories": [
-    "fully-electric-backend/node_modules",
-    "fully-electric-frontend/node_modules"
+    "backend/node_modules",
+    "frontend/node_modules"
   ],
   "dependencies": {
   }
