@@ -1,8 +1,4 @@
 const EV = require('../models/ev');
-const Make = require('../models/make');
-const Model = require('../models/model');
-const Location = require('../models/location');
-const Seller = require('../models/seller');
 
 // GET request for home page.
 exports.index = (req, res, next) => {
