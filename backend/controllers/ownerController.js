@@ -1,11 +1,11 @@
-const Seller = require('../models/seller');
+const Owner = require('../models/owner');
 const EV = require('../models/ev');
 
 const validator = require('express-validator');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
-// POST request to sign up seller
+// POST request to sign up owner
 exports.signUp = [
     // Validate fields.
     validator.body('name', 'Name must not be empty.').trim().isLength({ min: 1 }),
@@ -20,9 +20,9 @@ exports.signUp = [
         // Extract the validation errors from a request.
         const errors = validator.validationResult(req);
 
-        // Check if Seller already exists
+        // Check if Owner already exists
         // If not, hash password and save to db
-        Seller.findOne({ contact: req.body.contact }, (err, user) => {
+        Owner.findOne({ contact: req.body.contact }, (err, user) => {
             if (err) { return next(err); }
       
             if (user) {
@@ -36,7 +36,7 @@ exports.signUp = [
                 if (err) { return next(err); }
 
                 // otherwise, store hashedPassword in db
-                const user = new Seller({
+                const user = new Owner({
                     name: req.body.name,
                     contact: req.body.contact,
                     rating: 5,
@@ -67,7 +67,7 @@ exports.signUp = [
     }
 ];
 
-// POST request to log in seller
+// POST request to log in owner
 exports.logIn = (req, res, next) => {
     passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
@@ -84,13 +84,13 @@ exports.logIn = (req, res, next) => {
     })(req, res, next);
 }
 
-// POST request to log out seller
+// POST request to log out owner
 exports.logOut = (req, res, next) => {
     req.logOut();
-    res.json({ title: `Seller logged out` });
+    res.json({ title: `Owner logged out` });
 }
 
-// GET request for list of seller's evs
+// GET request for list of owner's evs
 exports.getEvs = (req, res, next) => {
     res.json({ title: `List of ${req.name}'s EVs` });
 }
@@ -100,18 +100,18 @@ exports.checkAuth = (req, res, next) => {
     res.json({ title: `User is logged in`, userId: req.user._id });
 }
 
-// GET request to get a seller's list of evs for sale
-exports.getSellerEvs = (req, res, next) => {
-    EV.find({ seller: { _id: req.params.id }  })
+// GET request to get a owner's list of evs for sale
+exports.getOwnerEvs = (req, res, next) => {
+    EV.find({ owner: { _id: req.params.id }  })
         .populate('location')
         .populate('make')
         .populate('model')
-        .populate('seller')
+        .populate('owner')
         .exec(function (err, evs) {
             if (err) { return next(err); }
 
             // Successful, so send data
-            res.json({ title: `List of EVs for sale from seller with id ${req.params.id}`, evs: evs });
+            res.json({ title: `List of EVs for sale from owner with id ${req.params.id}`, evs: evs });
         });
 }
 
@@ -131,7 +131,7 @@ exports.postCreateEv = [
             mileage: req.body.mileage,
             location: req.body.location,
             image_urls: req.body.imageUrls,
-            seller: req.user, // The seller is the logged in user via Passport
+            owner: req.user, // The owner is the logged in user via Passport
             list_date: req.body.listDate,
             equipment_and_options: req.body.equipmentAndOptions,
             exterior: req.body.bodyStyle 
@@ -158,7 +158,7 @@ exports.getUpdateEv = (req, res, next) => {
         .populate('location')
         .populate('make')
         .populate('model')
-        .populate('seller')
+        .populate('owner')
         .exec(function (err, ev) {
             if (err) { return next(err); }
 
@@ -176,7 +176,7 @@ exports.putUpdateEv = (req, res, next) => {
         mileage: req.body.mileage,
         location: req.body.location,
         image_urls: req.body.imageUrls,
-        seller: req.user, // The seller is the logged in user via Passport
+        owner: req.user, // The owner is the logged in user via Passport
         list_date: req.body.listDate,
         equipment_and_options: req.body.equipmentAndOptions,
         exterior: req.body.bodyStyle 
@@ -203,8 +203,8 @@ exports.deleteEv = (req, res, next) => {
     });
 }
 
-// POST request to contact seller
-exports.postContactSeller = (req, res, next) => {
+// POST request to contact owner
+exports.postContactOwner = (req, res, next) => {
     const nodemailer = require('nodemailer');
 
     // async..await is not allowed in global scope, must use a wrapper
@@ -232,5 +232,5 @@ exports.postContactSeller = (req, res, next) => {
 
     main().catch(console.error);
 
-    res.json({ title: `Contact seller with id ${req.params.id}` });
+    res.json({ title: `Contact owner with id ${req.params.id}` });
 }
