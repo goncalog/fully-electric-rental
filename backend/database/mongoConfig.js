@@ -4,7 +4,6 @@
 require('dotenv').config({ path: __dirname + '/../.env' });
 
 const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
 
 mongoose.connect(process.env.MONGODB_KEY, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;

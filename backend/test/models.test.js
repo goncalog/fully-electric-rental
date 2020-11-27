@@ -3,7 +3,7 @@ const EV = require('../models/ev');
 const Make = require('../models/make');
 const Model = require('../models/model');
 const Location = require('../models/location');
-const Seller = require('../models/seller');
+const Owner = require('../models/owner');
 
 const tesla = new Make({
     name: "Tesla",
@@ -26,18 +26,18 @@ const s70 = new Model({
         charge_cost: 5,
         hours_to_charge: 7,
     },
-    original_msrp: 85000,
     rating: 4.75,
     test: 2,
 });
 
 const london = new Location({
+    name: 'London',
     city: 'London',
     country: 'UK',
     test: 2,
 });
 
-const missTesla = new Seller({
+const missTesla = new Owner({
     name: 'Miss Tesla',
     contact: 'miss.tesla@gmail.com',
     rating: 4.2,
@@ -46,6 +46,7 @@ const missTesla = new Seller({
 });
 
 const date = new Date;
+const includedExtras = ['Insurance', 'Maintenance', 'MOT'];
 const equipmentAndOptions = ['Air conditioning', 'Heated seats', 'Brake assist'];
 const imageUrls = ['https://placeholder.com/image111', 'https://placeholder.com/image222']; 
 
@@ -53,11 +54,14 @@ const ev = new EV({
     make: tesla,
     model: s70,
     year: 2018,
-    price: 50000,
+    price_per_day: 50,
+    deposit: 250,
+    min_rental_period: '4 weeks',
+    included_extras: includedExtras,
     mileage: 18000,
     location: london,
     image_urls: imageUrls,
-    seller: missTesla,
+    owner: missTesla,
     list_date: date,
     equipment_and_options: equipmentAndOptions,
     exterior: {
@@ -70,6 +74,7 @@ const ev = new EV({
     },
     vehicle_identification_number: '1M8GDM9AXKP042788',
     full_vehicle_inspection: true,
+    pco_license: true,
     test: 2,
 });
 
@@ -79,7 +84,7 @@ describe('EV model', () => {
     });
 
     it('EV model has 18 properties', () => {
-        assert.strictEqual(Object.keys(ev.schema.tree).length, 18, 'ev has 18 properties');
+        assert.strictEqual(Object.keys(ev.schema.tree).length, 22, 'ev has 22 properties');
     });
 
     it('EV model has make', () => {
@@ -94,8 +99,25 @@ describe('EV model', () => {
         assert.strictEqual(ev.year, 2018, 'ev\'s year is 2018');
     });
 
-    it('EV model has price', () => {
-        assert.strictEqual(ev.price, 50000, 'ev\'s price is 50000');
+    it('EV model has price per day', () => {
+        assert.strictEqual(ev.price_per_day, 50, 'ev\'s price per day is 50');
+    });
+
+    it('EV model has deposit', () => {
+        assert.strictEqual(ev.deposit, 250, 'ev\'s deposit is 250');
+    });
+
+    it('EV model has min rental period', () => {
+        assert.strictEqual(ev.min_rental_period, '4 weeks', 'ev\'s min rental period is 4 weeks');
+    });
+
+    it('has included extras array', () => {
+        assert.instanceOf(ev.included_extras, Array, 'ev\'s included extras is an Array');
+        assert.strictEqual(ev.included_extras.length, 3, 'ev\'s included extras has 3 items');
+        ev.included_extras.forEach((extra, index) => {
+            assert.strictEqual(extra, includedExtras[index], 
+                    'ev\'s included extras is an array with Insurance, Maintenance and MOT');
+        });
     });
 
     it('EV model has mileage', () => {
@@ -115,8 +137,8 @@ describe('EV model', () => {
         });
     });
 
-    it('EV model has seller', () => {
-        assert.instanceOf(ev.seller, Seller, 'ev\'s seller is instance of Seller');
+    it('EV model has owner', () => {
+        assert.instanceOf(ev.owner, Owner, 'ev\'s owner is instance of Owner');
     });
 
     it('EV model has list date', () => {
@@ -158,6 +180,10 @@ describe('EV model', () => {
         assert.strictEqual(ev.full_vehicle_inspection, true, 'ev\'s full vehicle inspection is true');
     });
 
+    it('EV model has pco license', () => {
+        assert.strictEqual(ev.pco_license, true, 'ev\'s pco license is true');
+    });
+
     it('EV model has url', () => {
         assert.strictEqual(ev.url, `/content/ev/${ev._id}`, `ev\'s url is /content/ev/${ev._id}`);
     });
@@ -195,8 +221,8 @@ describe('Model model', () => {
         assert.instanceOf(s70, Model, 's70 is instance of Model');
     });
 
-    it('Model model has 11 properties', () => {
-        assert.strictEqual(Object.keys(s70.schema.tree).length, 11, 's70 has 11 properties');
+    it('Model model has 10 properties', () => {
+        assert.strictEqual(Object.keys(s70.schema.tree).length, 10, 's70 has 10 properties');
     });
 
     it('Model model has make', () => {
@@ -237,10 +263,6 @@ describe('Model model', () => {
     
     });
 
-    it('Model model has original msrp', () => {
-        assert.strictEqual(s70.original_msrp, 85000, 's70\'s original msrp is 85000');
-    });
-
     it('Model model has rating', () => {
         assert.strictEqual(s70.rating, 4.75, 's70\'s rating is 4.75');
     });
@@ -260,8 +282,12 @@ describe('Location model', () => {
         assert.instanceOf(london, Location, 'london is instance of Location');
     });
 
-    it('Location model has 5 properties', () => {
-        assert.strictEqual(Object.keys(london.schema.tree).length, 5, 'london has 5 properties');
+    it('Location model has 6 properties', () => {
+        assert.strictEqual(Object.keys(london.schema.tree).length, 6, 'london has 6 properties');
+    });
+
+    it('Location model has name', () => {
+        assert.strictEqual(london.name, 'London', 'london\'s name is London');
     });
 
     it('Location model has city', () => {
@@ -277,25 +303,25 @@ describe('Location model', () => {
     });
 });
 
-describe('Seller model', () => {
-    it('Seller model exists', () => {
-        assert.instanceOf(missTesla, Seller, 'missTesla is instance of Seller');
+describe('Owner model', () => {
+    it('Owner model exists', () => {
+        assert.instanceOf(missTesla, Owner, 'missTesla is instance of Owner');
     });
 
-    it('Seller model has 7 properties', () => {
+    it('Owner model has 7 properties', () => {
         assert.strictEqual(Object.keys(missTesla.schema.tree).length, 7, 'missTesla has 7 properties');
     });
 
-    it('Seller model has name', () => {
+    it('Owner model has name', () => {
         assert.strictEqual(missTesla.name, 'Miss Tesla', 'missTesla\'s name is Miss Tesla');
     });
 
-    it('Seller model has contact', () => {
+    it('Owner model has contact', () => {
         assert.strictEqual(missTesla.contact, 'miss.tesla@gmail.com', 
                 'missTesla\'s contact is miss.tesla@gmail.com');
     });
 
-    it('Seller model has rating', () => {
+    it('Owner model has rating', () => {
         assert.strictEqual(missTesla.rating, 4.2, 'missTesla\'s rating is 4.2');
     });
 
@@ -303,7 +329,7 @@ describe('Seller model', () => {
         assert.strictEqual(missTesla.password, '12345678', 'missTesla\'s password is 12345678');
     });
 
-    it('Seller model doesn\'t have test property', () => {
+    it('Owner model doesn\'t have test property', () => {
         assert.notExists(missTesla.test, 'missTesla\'s test property is null or undefined');
     });
 });
@@ -313,11 +339,12 @@ const evEmpty = new EV();
 const makeEmpty = new Make();
 const modelEmpty = new Model();
 const locationEmpty = new Location();
-const sellerEmpty = new Seller();
+const ownerEmpty = new Owner();
 
 const evMinValidation = new EV({
     year: 1899,
-    price: -1,
+    price_per_day: -1,
+    deposit: -1,
     mileage: -1,
     interior: {
         seating: 0,
@@ -343,7 +370,6 @@ const modelMinValidation = new Model({
         charge_cost: -1,
         hours_to_charge: -1,
     },
-    original_msrp: -1,
     rating: -1,
 });
 
@@ -351,12 +377,12 @@ const modelMaxValidation = new Model({
     rating: 5.1,
 });
 
-const sellerMinValidation = new Seller({
+const ownerMinValidation = new Owner({
     rating: -1,
     password: '1234567',
 });
 
-const sellerMaxValidation = new Seller({
+const ownerMaxValidation = new Owner({
     rating: 5.1,
 });
 
@@ -391,15 +417,39 @@ describe('EV model validators are set', () => {
         });
     });
 
-    it('EV model requires price', () => {
+    it('EV model requires price per day', () => {
         evEmpty.validate((err) => {
-            assert.exists(err.errors.price, 'ev\'s price is required');
+            assert.exists(err.errors.price_per_day, 'ev\'s price per day is required');
         });
     });
 
-    it('EV model\'s price isn\'t lower than 0', () => {
+    it('EV model\'s price per day isn\'t lower than 0', () => {
         evMinValidation.validate((err) => {
-            assert.exists(err.errors.price, 'ev\'s price isn\'t lower than 0');
+            assert.exists(err.errors.price_per_day, 'ev\'s price per day isn\'t lower than 0');
+        });
+    });
+
+    it('EV model requires deposit', () => {
+        evEmpty.validate((err) => {
+            assert.exists(err.errors.deposit, 'ev\'s deposit is required');
+        });
+    });
+
+    it('EV model\'s deposit isn\'t lower than 0', () => {
+        evMinValidation.validate((err) => {
+            assert.exists(err.errors.deposit, 'ev\'s deposit isn\'t lower than 0');
+        });
+    });
+
+    it('EV model requires min rental period', () => {
+        evEmpty.validate((err) => {
+            assert.exists(err.errors.min_rental_period, 'ev\'s min rental period is required');
+        });
+    });
+
+    it('EV model requires included extras', () => {
+        evEmpty.validate((err) => {
+            assert.exists(err.errors.included_extras, 'ev\'s included extras is required');
         });
     });
 
@@ -427,9 +477,9 @@ describe('EV model validators are set', () => {
         });
     });
 
-    it('EV model requires seller', () => {
+    it('EV model requires owner', () => {
         evEmpty.validate((err) => {
-            assert.exists(err.errors.seller, 'ev\'s seller is required');
+            assert.exists(err.errors.owner, 'ev\'s owner is required');
         });
     });
 
@@ -493,6 +543,12 @@ describe('EV model validators are set', () => {
     it('EV model requires full vehicle inspection', () => {
         evEmpty.validate((err) => {
             assert.exists(err.errors.full_vehicle_inspection, 'ev\'s full vehicle inspection is required');
+        });
+    });
+
+    it('EV model requires pco license', () => {
+        evEmpty.validate((err) => {
+            assert.exists(err.errors.pco_license, 'ev\'s pco license is required');
         });
     });
 });
@@ -595,18 +651,6 @@ describe('Model model require validators are set', () => {
         });
     });
 
-    it('Model model requires original msrp', () => {
-        modelEmpty.validate((err) => {
-            assert.exists(err.errors.original_msrp, 'model model requires original msrp');
-        });
-    });
-
-    it('Model model\'s original msrp is greater than 0', () => {
-        modelMinValidation.validate((err) => {
-            assert.exists(err.errors.original_msrp, 'model model\'s original msrp is greater than 0');
-        });
-    });
-
     it('Model model requires rating', () => {
         modelEmpty.validate((err) => {
             assert.exists(err.errors.rating, 'model model requires rating');
@@ -627,6 +671,12 @@ describe('Model model require validators are set', () => {
 });
 
 describe('Location model require validators are set', () => {
+    it('Location model requires name', () => {
+        locationEmpty.validate((err) => {
+            assert.exists(err.errors.name, 'location model requires name');
+        });
+    });
+
     it('Location model requires city', () => {
         locationEmpty.validate((err) => {
             assert.exists(err.errors.city, 'location model requires city');
@@ -640,46 +690,46 @@ describe('Location model require validators are set', () => {
     });
 });
 
-describe('Seller model require validators are set', () => {
-    it('Seller model requires name', () => {
-        sellerEmpty.validate((err) => {
-            assert.exists(err.errors.name, 'seller model requires name');
+describe('Owner model require validators are set', () => {
+    it('Owner model requires name', () => {
+        ownerEmpty.validate((err) => {
+            assert.exists(err.errors.name, 'owner model requires name');
         });
     });
 
-    it('Seller model requires contact', () => {
-        sellerEmpty.validate((err) => {
-            assert.exists(err.errors.contact, 'seller model requires contact');
+    it('Owner model requires contact', () => {
+        ownerEmpty.validate((err) => {
+            assert.exists(err.errors.contact, 'owner model requires contact');
         });
     });
 
-    it('Seller model requires rating', () => {
-        sellerEmpty.validate((err) => {
-            assert.exists(err.errors.rating, 'seller model requires rating');
+    it('Owner model requires rating', () => {
+        ownerEmpty.validate((err) => {
+            assert.exists(err.errors.rating, 'owner model requires rating');
         });
     });
 
-    it('Seller model\'s rating is greater than 0', () => {
-        sellerMinValidation.validate((err) => {
-            assert.exists(err.errors.rating, 'seller model\'s rating is greater than 0');
+    it('Owner model\'s rating is greater than 0', () => {
+        ownerMinValidation.validate((err) => {
+            assert.exists(err.errors.rating, 'owner model\'s rating is greater than 0');
         });
     });
 
-    it('Seller model\'s rating is less or equal to 0', () => {
-        sellerMaxValidation.validate((err) => {
-            assert.exists(err.errors.rating, 'seller model\'s rating is less or equal to 0');
+    it('Owner model\'s rating is less or equal to 0', () => {
+        ownerMaxValidation.validate((err) => {
+            assert.exists(err.errors.rating, 'owner model\'s rating is less or equal to 0');
         });
     });
 
-    it('Seller model requires password', () => {
-        sellerEmpty.validate((err) => {
-            assert.exists(err.errors.password, 'seller model requires password');
+    it('Owner model requires password', () => {
+        ownerEmpty.validate((err) => {
+            assert.exists(err.errors.password, 'owner model requires password');
         });
     });
 
-    it('Seller model\'s password has at least 8 characters', () => {
-        sellerMinValidation.validate((err) => {
-            assert.exists(err.errors.password, 'seller model\'s password has at least 8 characters');
+    it('Owner model\'s password has at least 8 characters', () => {
+        ownerMinValidation.validate((err) => {
+            assert.exists(err.errors.password, 'owner model\'s password has at least 8 characters');
         });
     });
 });
