@@ -7,6 +7,7 @@ import formatMiles from '../../utils/formatMiles';
 import formatNumber from '../../utils/formatNumber';
 import applyFilters from '../../utils/applyFilters';
 import applySort from '../../utils/applySort';
+import sortString from '../../utils/sortString';
 
 export default class EVs extends React.Component {
     constructor(props) {
@@ -87,7 +88,7 @@ export default class EVs extends React.Component {
                 .then((res) => res.json())
                 .then((res) => {
                     res.makes.forEach((make) => make['checked'] = false);
-                    this.setState({ make: { ...this.state.make, options: res.makes }}) 
+                    this.setState({ make: { ...this.state.make, options: sortString(res.makes, 'name') }}); 
                 })
         }
     }
