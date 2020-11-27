@@ -17,6 +17,9 @@ export default function applySort(filteredEVs, sortState) {
         case 'Highest Range':
             filteredEVs.sort((a, b) => b.model.charging.range_miles - a.model.charging.range_miles);
             break;
+
+        default:
+            break;
     }
     return filteredEVs;
 }
