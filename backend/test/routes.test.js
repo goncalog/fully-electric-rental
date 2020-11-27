@@ -61,7 +61,7 @@ describe('Routes testing', function () {
 
         function isEv(res) {
             for (let key in res.body.evs) {
-                if (!(Object.keys(res.body.evs[key]).length === 16)) {
+                if (!(Object.keys(res.body.evs[key]).length === 20)) {
                     throw new Error("Not an instance of EV");
                 }
             }
@@ -92,7 +92,7 @@ describe('Routes testing', function () {
             }
     
             function isEv(res) {
-                if (!(Object.keys(res.body.ev).length === 16)) {
+                if (!(Object.keys(res.body.ev).length === 20)) {
                     throw new Error("Not an instance of EV");
                 }
             }
@@ -108,7 +108,7 @@ describe('Routes testing', function () {
 
     it('route to get data to update ev works', () => {
         return request(app)
-            .get('/content/seller/xpto/ev/12345/update')
+            .get('/content/owner/xpto/ev/12345/update')
             .expect('Content-type', /json/)
             .expect({ message: 'Unauthorized: User not logged in' })
             .expect(401)
@@ -116,7 +116,7 @@ describe('Routes testing', function () {
     
     it('route to update ev works', () => {
         return request(app)
-            .put('/content/seller/xpto/ev/12345/update')
+            .put('/content/owner/xpto/ev/12345/update')
             .expect('Content-type', /json/)
             .expect({ message: 'Unauthorized: User not logged in' })
             .expect(401)
@@ -124,7 +124,7 @@ describe('Routes testing', function () {
 
     it('route to delete ev works', () => {
         return request(app)
-            .delete('/content/seller/xpto/ev/12345/delete')
+            .delete('/content/owner/xpto/ev/12345/delete')
             .expect('Content-type', /json/)
             .expect({ message: 'Unauthorized: User not logged in' })
             .expect(401)
@@ -228,7 +228,7 @@ describe('Routes testing', function () {
 
         function isModel(res) {
             for (let key in res.body.models) {
-                if (![8,9].includes((Object.keys(res.body.models[key]).length))) {
+                if (![7,8].includes((Object.keys(res.body.models[key]).length))) {
                     throw new Error("Not an instance of Model");
                 }
             }
@@ -258,16 +258,16 @@ describe('Routes testing', function () {
 
         function isLocation(res) {
             for (let key in res.body.locations) {
-                if (!(Object.keys(res.body.locations[key]).length === 4)) {
+                if (!(Object.keys(res.body.locations[key]).length === 5)) {
                     throw new Error("Not an instance of Location");
                 }
             }
         }
     });
 
-    it('route for seller sign up works', () => {
+    it('route for owner sign up works', () => {
         return request(app)
-            .post('/content/seller/signup')
+            .post('/content/owner/signup')
             .type('form')
             .send({ name: 'Miss Zoe', contact: 'zoe@gmail.com', password: '12345678' })
             .expect(function(res) {
@@ -278,9 +278,9 @@ describe('Routes testing', function () {
             .expect(200)
     });
 
-    it('route for seller log in works', () => {
+    it('route for owner log in works', () => {
         return request(app)
-            .post('/content/seller/login')
+            .post('/content/owner/login')
             .type('form')
             .send({ username: 'zoe@gmail.com', password: '12345678' })
             .expect(function(res) {
@@ -291,17 +291,17 @@ describe('Routes testing', function () {
             .expect(200)
     });
 
-    it('route for seller log out works', () => {
+    it('route for owner log out works', () => {
         return request(app)
-            .post('/content/seller/logout')
+            .post('/content/owner/logout')
             .expect('Content-type', /json/)
-            .expect({ title: 'Seller logged out' })
+            .expect({ title: 'Owner logged out' })
             .expect(200)
     });
 
-    it('route for seller\'s evs works', () => {
+    it('route for owner\'s evs works', () => {
         return request(app)
-            .get('/content/seller/evs')
+            .get('/content/owner/evs')
             .expect('Content-type', /json/)
             .expect({ message: 'Unauthorized: User not logged in' })
             .expect(401)
@@ -309,32 +309,32 @@ describe('Routes testing', function () {
 
     it('route to check the log in auth check works', () => {
         return request(app)
-            .get('/content/seller/checkAuth')
+            .get('/content/owner/checkAuth')
             .expect('Content-type', /json/)
             .expect({ message: 'Unauthorized: User not logged in' })
             .expect(401)
     });
 
-    it('route for getting a seller\'s list of evs for sale works', () => {
+    it('route for getting a owner\'s list of evs for sale works', () => {
         return request(app)
-            .get('/content/seller/5f80744b1a698848220d9e1e/evs')
+            .get('/content/owner/5f80744b1a698848220d9e1e/evs')
             .expect('Content-type', /json/)
-            // The ids from sellers created at test time isn't accessible, so it returns
+            // The ids from owners created at test time isn't accessible, so it returns
             // an empty evs array
             .expect({ 
-                title: 'List of EVs for sale from seller with id 5f80744b1a698848220d9e1e', 
+                title: 'List of EVs for sale from owner with id 5f80744b1a698848220d9e1e', 
                 evs: [],
             })
             .expect(200)
     });
 
-    it('route for sending message to seller works', () => {
+    it('route for sending message to owner works', () => {
         return request(app)
-            .post('/content/seller/12345/contact')
+            .post('/content/owner/12345/contact')
             .type('form')
             .send({ to: 'tomasa.hintz99@ethereal.email', subject: '', from: '', text: '' })
             .expect('Content-type', /json/)
-            .expect({ title: 'Contact seller with id 12345' })
+            .expect({ title: 'Contact owner with id 12345' })
             .expect(200)
     });
 
