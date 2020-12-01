@@ -23,7 +23,7 @@ export default class Auth extends React.Component {
     }
 
     handleButtonClick() {
-        if (this.props.match.url === '/seller/signup') {
+        if (this.props.match.url === '/owner/signup') {
             // Validate name provided
             if (this.state.firstName === '' || this.state.lastName === '') {
                 alert('Please provide a valid name.');
@@ -49,7 +49,7 @@ export default class Auth extends React.Component {
             : `${process.env.REACT_APP_SERVER_URL}/content${this.props.match.url}`;
         let data;
         
-        if (this.props.match.url === '/seller/signup') {
+        if (this.props.match.url === '/owner/signup') {
             // Sign up
             data = { 
                 name: `${this.state.firstName} ${this.state.lastName}`,
@@ -83,8 +83,8 @@ export default class Auth extends React.Component {
                 console.log('Success:', data);
                 // Inform AppRouter that login status changed
                 this.props.onAuth(data.userId);
-                // Go to Seller Page
-                this.props.history.push(`/seller/${data.userId}/evs`);
+                // Go to Owner Page
+                this.props.history.push(`/owner/${data.userId}/evs`);
             })            
             .catch((error) => {
                 console.error('Error:', error);
@@ -97,12 +97,12 @@ export default class Auth extends React.Component {
     }
 
     render() {
-        const action = this.props.match.url === '/seller/signup' ? 'Sign up' : 'Log in';
+        const action = this.props.match.url === '/owner/signup' ? 'Sign up' : 'Log in';
 
         return (
             <div className="auth">
                 <MainHeadline mainHeadline={action} />
-                <div className={this.props.match.url === '/seller/signup' ? '' : 'invisible'}>
+                <div className={this.props.match.url === '/owner/signup' ? '' : 'invisible'}>
                     <Input
                         className="first-name" 
                         property="firstName"
