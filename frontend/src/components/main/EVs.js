@@ -132,7 +132,8 @@ export default class EVs extends React.Component {
 
         return (
             <div className="evs">
-                <Filters 
+                {!this.props.fetchUrl.split('/').includes('owner') && (
+                    <Filters 
                     make={this.state.make}
                     price={this.state.price}
                     range={this.state.range}
@@ -142,7 +143,8 @@ export default class EVs extends React.Component {
                     onClick={this.handleClick}
                     onTextChange={this.handleTextChange}
                     onOptionChange={this.handleOptionChange}
-                />
+                    />
+                )}
                 <EVsContainer evs={evs} {...this.props} />
             </div>
         );
