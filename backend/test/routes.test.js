@@ -271,7 +271,7 @@ describe('Routes testing', function () {
             .type('form')
             .send({ name: 'Miss Zoe', contact: 'zoe@gmail.com', password: '12345678' })
             .expect(function(res) {
-                res.body.userId = '555666777';
+                if (res.body.userId) res.body.userId = '555666777';
               })
             .expect('Content-type', /json/)
             .expect({ title: 'Miss Zoe signed up', userId: '555666777' })
