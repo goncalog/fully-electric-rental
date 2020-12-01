@@ -2,7 +2,7 @@ import React from 'react';
 import Home from '../../../components/main/Home';
 import HeadlineContainer from '../../../components/support/HeadlineContainer';
 import BenefitsContainer from '../../../components/support/BenefitsContainer';
-import SellerContainer from '../../../components/support/SellerContainer';
+import OwnerContainer from '../../../components/support/OwnerContainer';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
@@ -53,14 +53,14 @@ describe('Home', () => {
         expect(Object.keys(shallowWrapper.props())).toContain('onButtonClick');
     });
 
-    test('has one SellerContainer', () => {
-        expect(home().find(SellerContainer).length).toEqual(1);
+    test('has one OwnerContainer', () => {
+        expect(home().find(OwnerContainer).length).toEqual(1);
     });
     
-    test('renders SellerContainer with passed properties', () => {
-        const shallowWrapper = home().find(SellerContainer);
+    test('renders OwnerContainer with passed properties', () => {
+        const shallowWrapper = home().find(OwnerContainer);
         expect(shallowWrapper.length).toEqual(1);
-        expect(shallowWrapper.prop('backgroundImagePath')).toBe('seller-container-background.jpg');
+        expect(shallowWrapper.prop('backgroundImagePath')).toBe('owner-container-background.jpg');
         expect(shallowWrapper.prop('mainHeadline')).toBe('Rent more cars, faster');
         expect(shallowWrapper.prop('secondaryHeadline'))
                 .toBe('We help PCO rental companies find the best drivers for their EV fleet');

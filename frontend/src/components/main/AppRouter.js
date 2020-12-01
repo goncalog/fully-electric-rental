@@ -8,8 +8,8 @@ import Navigation from './Navigation';
 import EV from './EV';
 import LogOut from './LogOut';
 import withAuth from '../support/withAuth';
-import SellerEVs from './SellerEVs';
-import SellerEV from './SellerEV';
+import OwnerEVs from './OwnerEVs';
+import OwnerEV from './OwnerEV';
 import EVForm from './EVForm';
 
 function AppRouter() {
@@ -21,8 +21,8 @@ function AppRouter() {
     // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
         let url = (process.env.NODE_ENV === 'production')
-                ? '/content/seller/checkAuth' 
-                : `${process.env.REACT_APP_SERVER_URL}/content/seller/checkAuth`;
+                ? '/content/owner/checkAuth' 
+                : `${process.env.REACT_APP_SERVER_URL}/content/owner/checkAuth`;
 
         fetch(url, { credentials: 'include' })
             .then(res => {
@@ -62,29 +62,29 @@ function AppRouter() {
                 >
                 </Route>
                 <Route path='/ev/:id' exact component={EV}></Route>
-                <Route path='/seller/:id/contact' exact component={Contact}></Route>
+                <Route path='/owner/:id/contact' exact component={Contact}></Route>
                 <Route 
-                    path='/seller/signup'
+                    path='/owner/signup'
                     exact
                     render={(props) => (<Auth onAuth={handleAuthChange} {...props} />)}
                 >
                 </Route>
                 <Route 
-                    path='/seller/login'
+                    path='/owner/login'
                     exact
                     render={(props) => (<Auth onAuth={handleAuthChange} {...props} />)}
                 >
                 </Route>
                 <Route 
-                    path='/seller/logout'
+                    path='/owner/logout'
                     exact 
                     render={(props) => (<LogOut onAuth={handleAuthChange} {...props} />)}
                 >
                 </Route>
-                <Route path='/seller/:id/evs' component={withAuth(SellerEVs)}></Route>
-                <Route path='/seller/:id/ev/create' component={withAuth(EVForm)}></Route>
-                <Route path='/seller/:id/ev/:id/update' component={withAuth(EVForm)}></Route>
-                <Route path='/seller/:id/ev/:id' component={withAuth(SellerEV)}></Route>
+                <Route path='/owner/:id/evs' component={withAuth(OwnerEVs)}></Route>
+                <Route path='/owner/:id/ev/create' component={withAuth(EVForm)}></Route>
+                <Route path='/owner/:id/ev/:id/update' component={withAuth(EVForm)}></Route>
+                <Route path='/owner/:id/ev/:id' component={withAuth(OwnerEV)}></Route>
             </Switch>
         </Router>
     );

@@ -12,7 +12,7 @@
     font-size: 30px;
 }
 
-.seller-contact {
+.owner-contact {
     padding-top: 30px;
     padding-bottom: 40px;
     border-top: 1px solid gray;
@@ -169,7 +169,7 @@
         font-size: 22px;
     }
 
-    .seller-contact {
+    .owner-contact {
         margin: 0 5%;
     }
 

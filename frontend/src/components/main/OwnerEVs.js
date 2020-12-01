@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import MainHeadline from '../support/MainHeadline';
 import CallToActionButton from '../support/CallToActionButton';
 import EVs from './EVs';
-import '../../css/SellerEVs.css';
+import '../../css/OwnerEVs.css';
 
-export default function SellerEVs(props) {
+export default function OwnerEVs(props) {
     function handleButtonClick() {
-        props.history.push(`/seller/${props.match.params.id}/ev/create`);
+        props.history.push(`/owner/${props.match.params.id}/ev/create`);
     }
 
     let url = (process.env.NODE_ENV === 'production') 
@@ -18,7 +18,7 @@ export default function SellerEVs(props) {
     });
 
     return (
-        <div className="seller-evs">
+        <div className="owner-evs">
             <MainHeadline mainHeadline="Your EVs for sale" />
             <CallToActionButton callToActionText="Add EV" onButtonClick={handleButtonClick} />
             <EVs fetchUrl={url} {...props} />         

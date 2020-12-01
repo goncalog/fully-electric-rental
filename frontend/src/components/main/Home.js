@@ -1,9 +1,9 @@
 import React from 'react';
 import HeadlineContainer from '../support/HeadlineContainer';
 import BenefitsContainer from '../support/BenefitsContainer';
-import SellerContainer from '../support/SellerContainer';
+import OwnerContainer from '../support/OwnerContainer';
 import backgroundHeadlineContainer from '../../media/headline-background.jpg';
-import backgroundSellerContainer from '../../media/seller-container-background.jpg';
+import backgroundOwnerContainer from '../../media/owner-container-background.jpg';
 import '../../css/Home.css';
 import { useHistory } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ export default function Home() {
     }
 
     function onSellButtonClick() {
-        history.push('/seller/signup');
+        history.push('/owner/signup');
     }
     
     const driverCallToActionText = 'Let\'s DRIVE!';
@@ -46,8 +46,8 @@ export default function Home() {
         onButtonClick: onEvsButtonClick,
     }
 
-    const sellerProps = {
-        backgroundImagePath: backgroundSellerContainer,
+    const ownerProps = {
+        backgroundImagePath: backgroundOwnerContainer,
         mainHeadline: 'Rent more cars, faster',
         secondaryHeadline: 'We help PCO rental companies find the best drivers for their EV fleet', // Electric car and EV have more Google searches than electric vehicle and EVs
         callToActionText: 'Let\'s SELL!',
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="home">
             <HeadlineContainer {...headlineProps}/>
             <BenefitsContainer {...benefitsProps} />
-            <SellerContainer {...sellerProps} />
+            <OwnerContainer {...ownerProps} />
         </div>
     );
 }

@@ -1,4 +1,4 @@
-.seller-ev {
+.owner-ev {
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
@@ -16,11 +16,11 @@
     background-color: rgb(190, 0, 0);
 }
 
-.seller-ev .seller-contact {
+.owner-ev .owner-contact {
     display: none;
 }
 
-.seller-ev .callToActionButton {
+.owner-ev .callToActionButton {
     margin: 0 20px;
 }
 
