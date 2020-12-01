@@ -99,28 +99,36 @@ export default class EV extends React.Component {
                     imagePath: imagePath,
                     evFeatures: [
                         { 
-                            name: 'Year',
-                            value: this.state.ev.year,
+                            name: 'Deposit',
+                            value: `£${formatNumber(this.state.ev.deposit)}`,
                         },
                         { 
-                            name: 'Mileage',
-                            value: formatNumber(this.state.ev.mileage),
+                            name: 'Min Rental',
+                            value: this.state.ev.min_rental_period,
                         },
                         { 
                             name: 'Range',
                             value: formatMiles(this.state.ev.model.charging.range_miles),
                         },
                         { 
-                            name: 'Location',
-                            value: this.state.ev.location.city,
+                            name: 'Year',
+                            value: this.state.ev.year,
                         },
                         { 
-                            name: 'Rating',
-                            value: formatRating(this.state.ev.model.rating),
+                            name: 'Location',
+                            value: this.state.ev.location.name,
                         },
                         { 
                             name: 'Full Charge',
                             value: `${this.state.ev.model.charging.hours_to_charge}h`,
+                        },
+                        { 
+                            name: '',
+                            value: '',
+                        },
+                        { 
+                            name: 'Rating',
+                            value: formatRating(this.state.ev.model.rating),
                         },
                     ],
                     sectionsVisibility: this.state.sectionsVisibility,
