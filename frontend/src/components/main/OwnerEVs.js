@@ -19,7 +19,7 @@ export default function OwnerEVs(props) {
 
     return (
         <div className="owner-evs">
-            <MainHeadline mainHeadline="Your EVs for sale" />
+            <MainHeadline mainHeadline="Your EVs for rent" />
             <CallToActionButton callToActionText="Add EV" onButtonClick={handleButtonClick} />
             <EVs fetchUrl={url} {...props} />         
         </div>
