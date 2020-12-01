@@ -15,7 +15,7 @@ export default function EVsContainer(props) {
                     <Link 
                         className="ev-link" 
                         to={(props.match.params.id)
-                                ? `/seller/${props.match.params.id}/ev/${ev.id}` 
+                                ? `/owner/${props.match.params.id}/ev/${ev.id}` 
                                 : `/ev/${ev.id}`} 
                         key={index}
                     >
