@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import CallToActionButton from '../support/CallToActionButton';
 import EV from './EV';
-import '../../css/SellerEV.css';
+import '../../css/OwnerEV.css';
 
-export default function SellerEV(props) {
+export default function OwnerEV(props) {
     const handleUpdateButtonClick = () => {
         props.history.push(`${props.match.url}/update`);
     } 
@@ -29,8 +29,8 @@ export default function SellerEV(props) {
                 }
 
                 console.log('Success:', data);
-                // Go to Seller Page
-                props.history.push(`/seller/${data.userId}/evs`);
+                // Go to Owner Page
+                props.history.push(`/owner/${data.userId}/evs`);
             })            
             .catch((error) => {
                 console.error('Error:', error);
@@ -43,7 +43,7 @@ export default function SellerEV(props) {
     });
 
     return (
-        <div className="seller-ev">
+        <div className="owner-ev">
             <div className="callToActionButton-container">
                 <CallToActionButton 
                     callToActionText="Update" 

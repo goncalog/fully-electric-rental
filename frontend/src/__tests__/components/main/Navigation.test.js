@@ -36,14 +36,14 @@ it('renders Sell link correctly', () => {
     const { getByText } = render(<Router><Navigation /></Router>);
     const contactLink = getByText(/Owners/);
     expect(contactLink).toBeInTheDocument();
-    expect(contactLink.getAttribute('href')).toBe('/seller/signup');
+    expect(contactLink.getAttribute('href')).toBe('/owner/signup');
 });
 
 it('renders Log in link correctly', () => {
     const { getByText } = render(<Router><Navigation /></Router>);
     const contactLink = getByText(/Log/);
     expect(contactLink).toBeInTheDocument();
-    expect(contactLink.getAttribute('href')).toBe('/seller/login');
+    expect(contactLink.getAttribute('href')).toBe('/owner/login');
 });
 
 it('renders the logo correctly', () => {

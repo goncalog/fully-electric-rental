@@ -39,7 +39,7 @@
     font-weight: 600;
 }
 
-.seller-container {
+.owner-container {
     padding: 5% 40% 5% 10%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@
     color: white;
 }
 
-.seller-container .secondary-headline {
+.owner-container .secondary-headline {
     padding-right: 15%;
 }
 
@@ -91,11 +91,11 @@
         font-size: 15px;
     }
     
-    .seller-container {
+    .owner-container {
         padding: 5% 27% 5% 10%;
     }
 
-    .seller-container .secondary-headline {
+    .owner-container .secondary-headline {
         padding-right: 25%;
     }
 }
@@ -127,15 +127,15 @@
         font-size: 14px;
     }
     
-    .seller-container {
+    .owner-container {
         padding: 5% 10% 5% 10%;
     }
 
-    .seller-container .secondary-headline {
+    .owner-container .secondary-headline {
         padding-right: 27%;
     }
 
-    .seller-container .secondary-headline {
+    .owner-container .secondary-headline {
         padding-right: 34%;
     }
 }
@@ -172,15 +172,15 @@
         font-size: 16px;
     }
     
-    .seller-container {
+    .owner-container {
         padding: 10% 10%;
     }
 
-    .seller-container .main-headline {
+    .owner-container .main-headline {
         font-size: 38px;
     }
 
-    .seller-container .secondary-headline {
+    .owner-container .secondary-headline {
         padding-right: 24%;
         font-size: 24px;
     }
@@ -221,11 +221,11 @@
         font-size: 14px;
     }
 
-    .seller-container .main-headline {
+    .owner-container .main-headline {
         font-size: 28px;
     }
 
-    .seller-container .secondary-headline {
+    .owner-container .secondary-headline {
         padding-right: 20%;
         font-size: 16px;
     }

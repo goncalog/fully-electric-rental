@@ -47,13 +47,13 @@ function Navigation(props) {
                             {props.loggedIn ? (
                                 <Nav.Item 
                                     className={`${
-                                        props.location.pathname === `/seller/${props.userId}/evs` 
+                                        props.location.pathname === `/owner/${props.userId}/evs` 
                                             ? "active" : "" 
                                     }`}
                                 >
                                     <Link 
                                         className="nav-link" 
-                                        to={`/seller/${props.userId}/evs`}
+                                        to={`/owner/${props.userId}/evs`}
                                         onClick={() => setExpanded(false)}
                                     >
                                         Owners
@@ -62,12 +62,12 @@ function Navigation(props) {
                             ) : (
                                 <Nav.Item 
                                     className={`${
-                                        props.location.pathname === "/seller/signup" ? "active" : "" 
+                                        props.location.pathname === "/owner/signup" ? "active" : "" 
                                     }`}
                                 >
                                     <Link 
                                         className="nav-link" 
-                                        to="/seller/signup" 
+                                        to="/owner/signup" 
                                         onClick={() => setExpanded(false)}
                                     >
                                         Owners
@@ -78,12 +78,12 @@ function Navigation(props) {
                             {props.loggedIn ? (
                                 <Nav.Item 
                                     className={`${
-                                        props.location.pathname === "/seller/logout" ? "active" : "" 
+                                        props.location.pathname === "/owner/logout" ? "active" : "" 
                                     }`}
                                 >
                                     <Link 
                                         className="nav-link" 
-                                        to="/seller/logout" 
+                                        to="/owner/logout" 
                                         onClick={() => setExpanded(false)}
                                     >
                                         Log out
@@ -92,12 +92,12 @@ function Navigation(props) {
                             ) : (
                                 <Nav.Item 
                                     className={`${
-                                        props.location.pathname === "/seller/login" ? "active" : "" 
+                                        props.location.pathname === "/owner/login" ? "active" : "" 
                                     }`}
                                 >
                                     <Link 
                                         className="nav-link" 
-                                        to="/seller/login" 
+                                        to="/owner/login" 
                                         onClick={() => setExpanded(false)}
                                     >
                                         Log in

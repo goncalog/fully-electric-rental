@@ -11,7 +11,7 @@ exports.getEvs = (req, res, next) => {
         .populate('location')
         .populate('make')
         .populate('model')
-        .populate('seller')
+        .populate('owner')
         .exec(function (err, evs) {
             if (err) { return next(err); }
 
@@ -26,7 +26,7 @@ exports.getUniqueEv = (req, res, next) => {
         .populate('location')
         .populate('make')
         .populate('model')
-        .populate('seller')
+        .populate('owner')
         .exec(function (err, ev) {
             if (err) { return next(err); }
 

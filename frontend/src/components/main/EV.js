@@ -1,7 +1,7 @@
 import React from 'react';
 import EVTitle from '../support/EVTitle';
 import EVPrice from '../support/EVPrice';
-import SellerContact from '../support/SellerContact';
+import OwnerContact from '../support/OwnerContact';
 import EVDetail from '../support/EVDetail';
 import formatRating from '../../utils/formatRating';
 import formatMiles from '../../utils/formatMiles';
@@ -17,7 +17,7 @@ export default class EV extends React.Component {
         this.state = { 
             ev: {}, 
             currentImage: 0,
-            sectionsVisibility: [false, false, false, false], 
+            sectionsVisibility: [true, false, false, false, false], 
         };
         this.handleChangeImageButtonClick = this.handleChangeImageButtonClick.bind(this);
         this.handleChangeSectionsVisibility = this.handleChangeSectionsVisibility.bind(this);
@@ -61,7 +61,7 @@ export default class EV extends React.Component {
         let ev = {
             title: '', 
             price: '',
-            seller: { 
+            owner: { 
                 name: '', 
                 rating: '', 
                 callToActionText: '',
@@ -85,52 +85,65 @@ export default class EV extends React.Component {
             
             ev = {
                 title: getFullEvTitle(this.state.ev),
-                price: this.state.ev.price.toString(),
-                seller: {
-                    name: this.state.ev.seller.name,
-                    rating: this.state.ev.seller.rating,
-                    callToActionText: 'Contact Seller',
-                    contact: this.state.ev.seller.contact,
-                    id: this.state.ev.seller._id,
+                price: this.state.ev.price_per_day.toString(),
+                owner: {
+                    name: this.state.ev.owner.name,
+                    rating: this.state.ev.owner.rating,
+                    callToActionText: 'Contact Owner',
+                    contact: this.state.ev.owner.contact,
+                    id: this.state.ev.owner._id,
                 },
                 detail: {
                     imagePath: imagePath,
                     evFeatures: [
                         { 
-                            name: 'Year',
-                            value: this.state.ev.year,
+                            name: 'Deposit',
+                            value: `£${formatNumber(this.state.ev.deposit)}`,
                         },
                         { 
-                            name: 'Mileage',
-                            value: formatNumber(this.state.ev.mileage),
+                            name: 'Min Rental',
+                            value: this.state.ev.min_rental_period,
                         },
                         { 
                             name: 'Range',
                             value: formatMiles(this.state.ev.model.charging.range_miles),
                         },
                         { 
-                            name: 'Location',
-                            value: this.state.ev.location.city,
+                            name: 'Year',
+                            value: this.state.ev.year,
                         },
                         { 
-                            name: 'Rating',
-                            value: formatRating(this.state.ev.model.rating),
+                            name: 'Location',
+                            value: this.state.ev.location.name,
                         },
                         { 
                             name: 'Full Charge',
                             value: `${this.state.ev.model.charging.hours_to_charge}h`,
                         },
+                        { 
+                            name: '',
+                            value: '',
+                        },
+                        { 
+                            name: 'Rating',
+                            value: formatRating(this.state.ev.model.rating),
+                        },
                     ],
                     sectionsVisibility: this.state.sectionsVisibility,
                     sections: [
                         {
-                            name: 'Equipment and options',
+                            name: 'Included in Rental',
                             expandButtonText: (this.state.sectionsVisibility[0]) ? '-' : '+',
+                            evFeatures: getEvFeaturesArray(this.state.ev.included_extras),    
+                        },
+                        {
+                            name: 'Equipment and Options',
+                            expandButtonText: (this.state.sectionsVisibility[1]) ? '-' : '+',
                             evFeatures: getEvFeaturesArray(this.state.ev.equipment_and_options),    
                         },
                         {
                             name: 'Exterior',
-                            expandButtonText: (this.state.sectionsVisibility[1]) ? '-' : '+',
+                            expandButtonText: (this.state.sectionsVisibility[2]) ? '-' : '+',
                             evFeatures: [
                                 { 
                                     name: 'Body style',
@@ -146,7 +159,7 @@ export default class EV extends React.Component {
                         },
                         {
                             name: 'Interior',
-                            expandButtonText: (this.state.sectionsVisibility[2]) ? '-' : '+',
+                            expandButtonText: (this.state.sectionsVisibility[3]) ? '-' : '+',
                             evFeatures: [
                                 { 
                                     name: 'Seating',
@@ -160,7 +173,7 @@ export default class EV extends React.Component {
                         },
                         {
                             name: 'Performance',
-                            expandButtonText: (this.state.sectionsVisibility[3]) ? '-' : '+',
+                            expandButtonText: (this.state.sectionsVisibility[4]) ? '-' : '+',
                             evFeatures: [
                                 { 
                                     name: 'Horsepower',
@@ -193,9 +206,9 @@ export default class EV extends React.Component {
             <div className="ev">
                 <EVTitle title={ev.title} />
                 <EVPrice price={ev.price} />
-                <SellerContact {...ev.seller} />
+                <OwnerContact {...ev.owner} />
                 <EVDetail {...ev.detail} />
-                <SellerContact {...ev.seller} />
+                <OwnerContact {...ev.owner} />
             </div>
         )
     }

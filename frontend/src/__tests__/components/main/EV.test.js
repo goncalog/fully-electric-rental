@@ -2,7 +2,7 @@ import React from 'react';
 import EV from '../../../components/main/EV';
 import EVTitle from '../../../components/support/EVTitle';
 import EVPrice from '../../../components/support/EVPrice';
-import SellerContact from '../../../components/support/SellerContact';
+import OwnerContact from '../../../components/support/OwnerContact';
 import EVDetail from '../../../components/support/EVDetail';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -61,8 +61,8 @@ describe('EV', () => {
         expect(Object.keys(shallowWrapper.props())).toContain('price');
     });
 
-    test('has 2 SellerContact components rendered with passed properties', () => {
-        const shallowWrapper = ev().find(SellerContact);
+    test('has 2 OwnerContact components rendered with passed properties', () => {
+        const shallowWrapper = ev().find(OwnerContact);
         expect(shallowWrapper.length).toEqual(2);
 
         shallowWrapper.forEach((node) => {
