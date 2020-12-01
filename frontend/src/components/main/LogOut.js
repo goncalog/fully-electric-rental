@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function LogOut(props) {
     let url = (process.env.NODE_ENV === 'production') 
-            ? '/content/seller/logout' 
-            : `${process.env.REACT_APP_SERVER_URL}/content/seller/logout`;
+            ? '/content/owner/logout' 
+            : `${process.env.REACT_APP_SERVER_URL}/content/owner/logout`;
 
     fetch(url, {
         method: 'POST',
