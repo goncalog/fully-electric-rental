@@ -58,7 +58,7 @@ exports.signUp = [
                             if (err) { return next(err); }
                             
                             // Successful
-                            return res.json({ title: `${req.user.name} signed up` });
+                            return res.json({ title: `${req.user.name} signed up`, userId: req.user.id });
                         });                        
                     });
                 }
