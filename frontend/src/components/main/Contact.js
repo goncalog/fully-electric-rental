@@ -39,8 +39,8 @@ export default class Contact extends React.Component {
 
         // Send data to backend
         let url = (process.env.NODE_ENV === 'production') 
-                ? `/content/seller/${this.props.match.params.id}/contact`
-                : `${process.env.REACT_APP_SERVER_URL}/content/seller/${this.props.match.params.id}/contact`;
+                ? `/content/owner/${this.props.match.params.id}/contact`
+                : `${process.env.REACT_APP_SERVER_URL}/content/owner/${this.props.match.params.id}/contact`;
         
         const data = { 
             from: this.state.emailText,
@@ -59,7 +59,7 @@ export default class Contact extends React.Component {
             .then(response => response.json())
             .then(response => {
                 console.log('Success:', response);
-                alert("Your message was successfully sent. The seller will contact you soon.");
+                alert("Your message was successfully sent. The owner will contact you soon.");
                 this.setState({ emailText: '', messageText: '' });
             })
             .catch((error) => {
