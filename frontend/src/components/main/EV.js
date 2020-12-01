@@ -1,7 +1,7 @@
 import React from 'react';
 import EVTitle from '../support/EVTitle';
 import EVPrice from '../support/EVPrice';
-import SellerContact from '../support/SellerContact';
+import OwnerContact from '../support/OwnerContact';
 import EVDetail from '../support/EVDetail';
 import formatRating from '../../utils/formatRating';
 import formatMiles from '../../utils/formatMiles';
@@ -61,7 +61,7 @@ export default class EV extends React.Component {
         let ev = {
             title: '', 
             price: '',
-            seller: { 
+            owner: { 
                 name: '', 
                 rating: '', 
                 callToActionText: '',
@@ -82,16 +82,18 @@ export default class EV extends React.Component {
             const imagePath = this.state.ev.image_urls[
                 getImagePosForSlider(this.state.ev.image_urls.length, this.state.currentImage)
             ];
+
+            console.log(this.state.ev);
             
             ev = {
                 title: getFullEvTitle(this.state.ev),
-                price: this.state.ev.price.toString(),
-                seller: {
-                    name: this.state.ev.seller.name,
-                    rating: this.state.ev.seller.rating,
-                    callToActionText: 'Contact Seller',
-                    contact: this.state.ev.seller.contact,
-                    id: this.state.ev.seller._id,
+                price: this.state.ev.price_per_day.toString(),
+                owner: {
+                    name: this.state.ev.owner.name,
+                    rating: this.state.ev.owner.rating,
+                    callToActionText: 'Contact Owner',
+                    contact: this.state.ev.owner.contact,
+                    id: this.state.ev.owner._id,
                 },
                 detail: {
                     imagePath: imagePath,
@@ -193,9 +195,9 @@ export default class EV extends React.Component {
             <div className="ev">
                 <EVTitle title={ev.title} />
                 <EVPrice price={ev.price} />
-                <SellerContact {...ev.seller} />
+                <OwnerContact {...ev.owner} />
                 <EVDetail {...ev.detail} />
-                <SellerContact {...ev.seller} />
+                <OwnerContact {...ev.owner} />
             </div>
         )
     }
