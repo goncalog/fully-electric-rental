@@ -106,7 +106,7 @@
 }
 
 .feature-name {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     margin: 0;
     padding-bottom: 5px;
@@ -144,6 +144,10 @@
     .evs-container {
         grid-auto-rows: 400px;
         gap: 20px 10%;
+    }
+
+    .feature-name {
+        font-size: 13px;
     }
 }
 
