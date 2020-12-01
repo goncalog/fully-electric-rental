@@ -17,7 +17,7 @@ export default class EV extends React.Component {
         this.state = { 
             ev: {}, 
             currentImage: 0,
-            sectionsVisibility: [false, false, false, false], 
+            sectionsVisibility: [true, false, false, false, false], 
         };
         this.handleChangeImageButtonClick = this.handleChangeImageButtonClick.bind(this);
         this.handleChangeSectionsVisibility = this.handleChangeSectionsVisibility.bind(this);
@@ -82,8 +82,6 @@ export default class EV extends React.Component {
             const imagePath = this.state.ev.image_urls[
                 getImagePosForSlider(this.state.ev.image_urls.length, this.state.currentImage)
             ];
-
-            console.log(this.state.ev);
             
             ev = {
                 title: getFullEvTitle(this.state.ev),
@@ -134,13 +132,18 @@ export default class EV extends React.Component {
                     sectionsVisibility: this.state.sectionsVisibility,
                     sections: [
                         {
-                            name: 'Equipment and options',
+                            name: 'Included in Rental',
                             expandButtonText: (this.state.sectionsVisibility[0]) ? '-' : '+',
+                            evFeatures: getEvFeaturesArray(this.state.ev.included_extras),    
+                        },
+                        {
+                            name: 'Equipment and Options',
+                            expandButtonText: (this.state.sectionsVisibility[1]) ? '-' : '+',
                             evFeatures: getEvFeaturesArray(this.state.ev.equipment_and_options),    
                         },
                         {
                             name: 'Exterior',
-                            expandButtonText: (this.state.sectionsVisibility[1]) ? '-' : '+',
+                            expandButtonText: (this.state.sectionsVisibility[2]) ? '-' : '+',
                             evFeatures: [
                                 { 
                                     name: 'Body style',
@@ -156,7 +159,7 @@ export default class EV extends React.Component {
                         },
                         {
                             name: 'Interior',
-                            expandButtonText: (this.state.sectionsVisibility[2]) ? '-' : '+',
+                            expandButtonText: (this.state.sectionsVisibility[3]) ? '-' : '+',
                             evFeatures: [
                                 { 
                                     name: 'Seating',
@@ -170,7 +173,7 @@ export default class EV extends React.Component {
                         },
                         {
                             name: 'Performance',
-                            expandButtonText: (this.state.sectionsVisibility[3]) ? '-' : '+',
+                            expandButtonText: (this.state.sectionsVisibility[4]) ? '-' : '+',
                             evFeatures: [
                                 { 
                                     name: 'Horsepower',
