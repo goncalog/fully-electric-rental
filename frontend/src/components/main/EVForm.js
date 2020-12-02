@@ -4,6 +4,7 @@ import Input from '../support/Input';
 import Select from '../support/Select';
 import CallToActionButton from '../support/CallToActionButton';
 import EVAdditionalFeatures from '../support/EVAdditionalFeatures';
+import sortString from '../../utils/sortString';
 import '../../css/EVForm.css';
 
 export default class EVForm extends React.Component {
@@ -248,7 +249,7 @@ export default class EVForm extends React.Component {
 
             fetch(url)
                 .then((res) => res.json())
-                .then((res) => { this.setState({ makes: res.makes }) })
+                .then((res) => { this.setState({ makes: sortString(res.makes, 'name') }) })
         }
 
         if (this.state.locations.length === 0) {
