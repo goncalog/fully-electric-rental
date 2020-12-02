@@ -4,6 +4,7 @@ import Input from '../support/Input';
 import Select from '../support/Select';
 import CallToActionButton from '../support/CallToActionButton';
 import EVAdditionalFeatures from '../support/EVAdditionalFeatures';
+import sortString from '../../utils/sortString';
 import '../../css/EVForm.css';
 
 export default class EVForm extends React.Component {
@@ -13,6 +14,10 @@ export default class EVForm extends React.Component {
             make: '',
             model: '',
             price: '',
+            deposit: '',
+            minRentalPeriod: '',
+            includedExtra: '',
+            includedExtras: [],
             year: '',
             mileage: '',
             location: '',
@@ -24,8 +29,9 @@ export default class EVForm extends React.Component {
             exteriorColour: '',
             interiorColour: '',
             seating: '',
-            vehicleIdentificationNumber: '',
+            vehicleIdentificationNumber: 'XPTO123456789XPTO', // Use a default value while focusing on PCO rental companies
             fullVehicleInspection: '',
+            pcoLicense: '',
             makes: [],
             models: [],
             locations: [],
@@ -34,6 +40,7 @@ export default class EVForm extends React.Component {
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleAddImageUrlButtonClick = this.handleAddImageUrlButtonClick.bind(this);
         this.handleAddEquimentAndOptionsButtonClick = this.handleAddEquimentAndOptionsButtonClick.bind(this);
+        this.handleAddIncludedExtrasButtonClick = this.handleAddIncludedExtrasButtonClick.bind(this);
         this.handleSaveButtonClick = this.handleSaveButtonClick.bind(this);
         this.handleMakeSelection = this.handleMakeSelection.bind(this);
     }
@@ -68,6 +75,19 @@ export default class EVForm extends React.Component {
         });
     }
 
+    handleAddIncludedExtrasButtonClick() {
+        if (this.state.includedExtra === '') {
+            alert('Please provide a valid input.');
+            return;
+        }
+
+        this.setState((state) => {
+            let array = state.includedExtras.slice(); // Creating a new copy
+            array.push({ name: state.includedExtra });
+            return { includedExtras: array, includedExtra: '' };
+        });
+    }
+
     handleSaveButtonClick() {
         // Validation
         if (this.state.make === '') {
@@ -82,6 +102,16 @@ export default class EVForm extends React.Component {
 
         if (this.state.price < 0 || this.state.price === '' || isNaN(Number(this.state.price))) {
             alert('Please provide a valid price.');
+            return;
+        }
+
+        if (this.state.deposit < 0 || this.state.deposit === '' || isNaN(Number(this.state.deposit))) {
+            alert('Please provide a valid deposit.');
+            return;
+        }
+
+        if (this.state.minRentalPeriod === '') {
+            alert('Please provide a valid minimum rental period.');
             return;
         }
 
@@ -131,6 +161,11 @@ export default class EVForm extends React.Component {
             return;
         } 
 
+        if (this.state.pcoLicense === '') {
+            alert('Please provide the PCO license status.');
+            return;
+        } 
+
         // Send data to backend
         let url = (process.env.NODE_ENV === 'production') 
             ? `/content${this.props.match.url}`
@@ -141,11 +176,14 @@ export default class EVForm extends React.Component {
             make: this.state.make,
             model: this.state.model,
             price: this.state.price,
+            deposit: this.state.deposit,
+            minRentalPeriod: this.state.minRentalPeriod,
+            includedExtras: this.state.includedExtras.map((item) => item.name),
             year: this.state.year,
             mileage: this.state.mileage,
             location: this.state.location,
             imageUrls: this.state.imageUrls,
-            // Not sending the seller because the backend (Passport) already has this info
+            // Not sending the owner because the backend (Passport) already has this info
             listDate: currentDate,
             equipmentAndOptions: this.state.equipmentAndOptions.map((item) => item.name),
             bodyStyle: this.state.bodyStyle,
@@ -154,6 +192,7 @@ export default class EVForm extends React.Component {
             seating: this.state.seating,
             vehicleIdentificationNumber: this.state.vehicleIdentificationNumber,
             fullVehicleInspection: this.state.fullVehicleInspection,
+            pcoLicense: this.state.pcoLicense,
         };
 
         fetch(url, {
@@ -173,8 +212,8 @@ export default class EVForm extends React.Component {
                 }
 
                 console.log('Success:', data);
-                // Go to Seller Page
-                this.props.history.push(`/seller/${data.userId}/evs`);
+                // Go to Owner Page
+                this.props.history.push(`/owner/${data.userId}/evs`);
             })            
             .catch((error) => {
                 console.error('Error:', error);
@@ -210,7 +249,7 @@ export default class EVForm extends React.Component {
 
             fetch(url)
                 .then((res) => res.json())
-                .then((res) => { this.setState({ makes: res.makes }) })
+                .then((res) => { this.setState({ makes: sortString(res.makes, 'name') }) })
         }
 
         if (this.state.locations.length === 0) {
@@ -220,7 +259,7 @@ export default class EVForm extends React.Component {
 
             fetch(url)
                 .then((res) => res.json())
-                .then((res) => { this.setState({ locations: res.locations }) })
+                .then((res) => { this.setState({ locations: sortString(res.locations, 'name') }) })
         }
 
         // If this is the update page, load EV data
@@ -235,7 +274,10 @@ export default class EVForm extends React.Component {
                     this.handleMakeSelection('make', res.ev.make._id);
                     this.setState({
                         model: res.ev.model._id,
-                        price: res.ev.price,
+                        price: res.ev.price_per_day,
+                        deposit: res.ev.deposit,
+                        minRentalPeriod: res.ev.min_rental_period,
+                        includedExtras: res.ev.included_extras.map((item) => ({ name: item })),
                         year: res.ev.year,
                         mileage: res.ev.mileage,
                         location: res.ev.location._id,
@@ -247,6 +289,7 @@ export default class EVForm extends React.Component {
                         seating: res.ev.interior.seating,
                         vehicleIdentificationNumber: res.ev.vehicle_identification_number,
                         fullVehicleInspection: res.ev.full_vehicle_inspection, 
+                        pcoLicense: res.ev.pco_license, 
                     }); 
                 });
         }
@@ -255,7 +298,7 @@ export default class EVForm extends React.Component {
     render() {
         return (
             <div className="ev-form">
-                <MainHeadline mainHeadline="Your EV for sale" />
+                <MainHeadline mainHeadline="Your EV for rent" />
                 <CallToActionButton 
                     callToActionText="Save" 
                     onButtonClick={this.handleSaveButtonClick}
@@ -280,10 +323,41 @@ export default class EVForm extends React.Component {
                 <Input 
                     className="price"
                     property="price"
-                    placeholder="Price" 
+                    placeholder="Price per day" 
                     text={this.state.price}
                     onTextChange={this.handleTextChange}
                 />
+                <Input 
+                    className="deposit"
+                    property="deposit"
+                    placeholder="Deposit" 
+                    text={this.state.deposit}
+                    onTextChange={this.handleTextChange}
+                />
+                <Input 
+                    className="min-rental-period"
+                    property="minRentalPeriod"
+                    placeholder="Min rental period" 
+                    text={this.state.minRentalPeriod}
+                    onTextChange={this.handleTextChange}
+                />
+                <div className="included-extras-container add">
+                    <Input 
+                        className="included-extra"
+                        property="includedExtra"
+                        placeholder="Included in rental" 
+                        text={this.state.includedExtra}
+                        onTextChange={this.handleTextChange}
+                    />
+                    <CallToActionButton  
+                        callToActionText="Add" 
+                        onButtonClick={this.handleAddIncludedExtrasButtonClick}
+                    />
+                    <EVAdditionalFeatures 
+                        evFeatures={this.state.includedExtras}
+                        sectionVisibility={true}
+                    />
+                </div>
                 <Input 
                     className="year"
                     property="year"
@@ -371,19 +445,20 @@ export default class EVForm extends React.Component {
                     text={this.state.seating}
                     onTextChange={this.handleTextChange}
                 />
-                <Input 
-                    className="vehicle-identification-number"
-                    property="vehicleIdentificationNumber"
-                    placeholder="Vehicle Identification Number" 
-                    text={this.state.vehicleIdentificationNumber}
-                    onTextChange={this.handleTextChange}
-                />
                 <Select 
                     className="full-vehicle-inspection"
                     property="fullVehicleInspection"
                     placeholder="Full Vehicle Inspection" 
                     onTextChange={this.handleTextChange}
                     option={this.state.fullVehicleInspection} 
+                    options={[{ name: 'Yes', _id: true }, { name: 'No', _id: false }]}
+                />
+                <Select 
+                    className="pco-license"
+                    property="pcoLicense"
+                    placeholder="PCO License" 
+                    onTextChange={this.handleTextChange}
+                    option={this.state.pcoLicense} 
                     options={[{ name: 'Yes', _id: true }, { name: 'No', _id: false }]}
                 />
 
