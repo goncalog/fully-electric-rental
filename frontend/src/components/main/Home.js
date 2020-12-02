@@ -7,7 +7,7 @@ import backgroundOwnerContainer from '../../media/owner-container-background.jpg
 import '../../css/Home.css';
 import { useHistory } from 'react-router-dom';
 
-export default function Home() {
+export default function Home(props) {
     let history = useHistory();
 
     function onEvsButtonClick() {
@@ -15,7 +15,7 @@ export default function Home() {
     }
 
     function onSellButtonClick() {
-        history.push('/owner/signup');
+        (props.loggedIn) ? history.push(`/owner/${props.userId}/evs`) : history.push('/owner/signup');
     }
     
     const driverCallToActionText = 'Let\'s DRIVE!';
