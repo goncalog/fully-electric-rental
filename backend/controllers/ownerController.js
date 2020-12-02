@@ -229,7 +229,8 @@ exports.postContactOwner = (req, res, next) => {
         // Send mail with defined transport object
         let info = await transporter.sendMail({
             from: process.env.NODEMAILER_AUTH_USER, // sender address
-            to: req.body.to, // list of receivers
+            // If there's no owner contact, this is a general contact, so send it to a specified email
+            to: (req.body.to !== '') ? req.body.to : process.env.CONTACT_EMAIL, // list of receivers
             subject: req.body.subject, // Subject line
             text: `${req.body.from} has sent you the following message: \n\n${req.body.text}`,
         });
