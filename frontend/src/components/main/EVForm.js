@@ -274,7 +274,7 @@ export default class EVForm extends React.Component {
                     this.handleMakeSelection('make', res.ev.make._id);
                     this.setState({
                         model: res.ev.model._id,
-                        price: res.ev.price,
+                        price: res.ev.price_per_day,
                         deposit: res.ev.deposit,
                         minRentalPeriod: res.ev.min_rental_period,
                         includedExtras: res.ev.included_extras.map((item) => ({ name: item })),
