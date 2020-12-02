@@ -54,7 +54,12 @@ function AppRouter() {
         <Router>
             <Navigation loggedIn={loggedIn} userId={userId}/>
             <Switch>
-                <Route path='/' exact component={Home}></Route>
+                <Route 
+                    path='/' 
+                    exact
+                    render={(props) => (<Home loggedIn={loggedIn} userId={userId} {...props} />)} 
+                >
+                </Route>
                 <Route 
                     path='/evs' 
                     exact 
