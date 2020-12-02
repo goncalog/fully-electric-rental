@@ -43,7 +43,7 @@ test('renders all Route components with correct paths', () => {
         pathMap[routeProps.path] = (routeProps.component) ? routeProps.component : routeProps.render;
         return pathMap;
     }, {});
-    expect(pathMap['/']).toBe(Home);
+    expect(Object.keys(pathMap)).toContain('/');
     expect(Object.keys(pathMap)).toContain('/evs');
     expect(pathMap['/ev/:id']).toBe(EV);
     expect(pathMap['/owner/:id/contact']).toBe(Contact);
