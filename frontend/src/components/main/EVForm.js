@@ -259,7 +259,7 @@ export default class EVForm extends React.Component {
 
             fetch(url)
                 .then((res) => res.json())
-                .then((res) => { this.setState({ locations: res.locations }) })
+                .then((res) => { this.setState({ locations: sortString(res.locations, 'name') }) })
         }
 
         // If this is the update page, load EV data
