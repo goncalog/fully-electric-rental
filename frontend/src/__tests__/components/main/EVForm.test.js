@@ -44,8 +44,8 @@ describe('EVForm', () => {
         window.scrollTo = jsdomScrollTo; // restore the jsdom scrollTo
     });
 
-    test('has 17 children', () => {
-        expect(evForm().children().length).toEqual(17);
+    test('has 21 children', () => {
+        expect(evForm().children().length).toEqual(21);
     });
 
     test('has one MainHeadline rendered with passed properties', () => {
@@ -54,9 +54,9 @@ describe('EVForm', () => {
         expect(Object.keys(shallowWrapper.props())).toContain('mainHeadline');
     });
 
-    test('has 4 CallToActionButton components rendered with passed properties', () => {
+    test('has 5 CallToActionButton components rendered with passed properties', () => {
         const shallowWrapper = evForm().find(CallToActionButton);
-        expect(shallowWrapper.length).toEqual(4);
+        expect(shallowWrapper.length).toEqual(5);
         shallowWrapper.forEach((node) => {
             expect(Object.keys(node.props())).toContain('callToActionText');
             expect(Object.keys(node.props())).toContain('onButtonClick');
@@ -64,9 +64,9 @@ describe('EVForm', () => {
         
     });
 
-    test('has 10 Input components rendered with passed properties', () => {
+    test('has 13 Input components rendered with passed properties', () => {
         const shallowWrapper = evForm().find(Input);
-        expect(shallowWrapper.length).toEqual(10);
+        expect(shallowWrapper.length).toEqual(13);
         shallowWrapper.forEach((node) => {
             expect(Object.keys(node.props())).toContain('className');
             expect(Object.keys(node.props())).toContain('property');
@@ -76,9 +76,9 @@ describe('EVForm', () => {
         })
     });
 
-    test('has 4 Select components rendered with passed properties', () => {
+    test('has 5 Select components rendered with passed properties', () => {
         const shallowWrapper = evForm().find(Select);
-        expect(shallowWrapper.length).toEqual(4);
+        expect(shallowWrapper.length).toEqual(5);
         shallowWrapper.forEach((node) => {
             expect(Object.keys(node.props())).toContain('className');
             expect(Object.keys(node.props())).toContain('property');
@@ -94,10 +94,12 @@ describe('EVForm', () => {
         expect(shallowWrapper.length).toEqual(1);
     });
 
-    test('has one EVAdditionalFeatures rendered with passed properties', () => {
+    test('has 2 EVAdditionalFeatures rendered with passed properties', () => {
         const shallowWrapper = evForm().find(EVAdditionalFeatures);
-        expect(shallowWrapper.length).toEqual(1);
-        expect(Object.keys(shallowWrapper.props())).toContain('evFeatures');
-        expect(Object.keys(shallowWrapper.props())).toContain('sectionVisibility');
+        expect(shallowWrapper.length).toEqual(2);
+        shallowWrapper.forEach((node) => {
+            expect(Object.keys(node.props())).toContain('evFeatures');
+            expect(Object.keys(node.props())).toContain('sectionVisibility');
+        });
     });
 });
