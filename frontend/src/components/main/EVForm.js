@@ -29,7 +29,7 @@ export default class EVForm extends React.Component {
             exteriorColour: '',
             interiorColour: '',
             seating: '',
-            vehicleIdentificationNumber: '',
+            vehicleIdentificationNumber: 'XPTO123456789XPTO', // Use a default value while focusing on PCO rental companies
             fullVehicleInspection: '',
             pcoLicense: '',
             makes: [],
@@ -443,13 +443,6 @@ export default class EVForm extends React.Component {
                     property="seating"
                     placeholder="Seating" 
                     text={this.state.seating}
-                    onTextChange={this.handleTextChange}
-                />
-                <Input 
-                    className="vehicle-identification-number"
-                    property="vehicleIdentificationNumber"
-                    placeholder="Vehicle Identification Number" 
-                    text={this.state.vehicleIdentificationNumber}
                     onTextChange={this.handleTextChange}
                 />
                 <Select 

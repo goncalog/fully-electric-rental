@@ -44,8 +44,8 @@ describe('EVForm', () => {
         window.scrollTo = jsdomScrollTo; // restore the jsdom scrollTo
     });
 
-    test('has 21 children', () => {
-        expect(evForm().children().length).toEqual(21);
+    test('has 20 children', () => {
+        expect(evForm().children().length).toEqual(20);
     });
 
     test('has one MainHeadline rendered with passed properties', () => {
@@ -64,9 +64,9 @@ describe('EVForm', () => {
         
     });
 
-    test('has 13 Input components rendered with passed properties', () => {
+    test('has 12 Input components rendered with passed properties', () => {
         const shallowWrapper = evForm().find(Input);
-        expect(shallowWrapper.length).toEqual(13);
+        expect(shallowWrapper.length).toEqual(12);
         shallowWrapper.forEach((node) => {
             expect(Object.keys(node.props())).toContain('className');
             expect(Object.keys(node.props())).toContain('property');
