@@ -31,9 +31,9 @@ test('renders the Switch component', () => {
     expect(wrapper.find(Switch).length).toBe(1);
 });
 
-test('renders 11 Route components', () => {
+test('renders 12 Route components', () => {
     const wrapper = shallow(<AppRouter />);
-    expect(wrapper.find(Route).length).toBe(11);
+    expect(wrapper.find(Route).length).toBe(12);
 });
 
 test('renders all Route components with correct paths', () => {
@@ -43,9 +43,10 @@ test('renders all Route components with correct paths', () => {
         pathMap[routeProps.path] = (routeProps.component) ? routeProps.component : routeProps.render;
         return pathMap;
     }, {});
-    expect(pathMap['/']).toBe(Home);
+    expect(Object.keys(pathMap)).toContain('/');
     expect(Object.keys(pathMap)).toContain('/evs');
     expect(pathMap['/ev/:id']).toBe(EV);
+    expect(pathMap['/contact']).toBe(Contact);
     expect(pathMap['/owner/:id/contact']).toBe(Contact);
     expect(Object.keys(pathMap)).toContain('/owner/signup');
     expect(Object.keys(pathMap)).toContain('/owner/login');

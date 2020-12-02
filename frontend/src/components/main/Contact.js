@@ -44,7 +44,7 @@ export default class Contact extends React.Component {
         
         const data = { 
             from: this.state.emailText,
-            to: this.props.location.state.contact,
+            to: (this.props.location.state) ? this.props.location.state.contact : '',
             subject: 'Contact',
             text: this.state.messageText,
         };
@@ -59,7 +59,7 @@ export default class Contact extends React.Component {
             .then(response => response.json())
             .then(response => {
                 console.log('Success:', response);
-                alert("Your message was successfully sent. The owner will contact you soon.");
+                alert("Your message was successfully sent. You will be contacted soon.");
                 this.setState({ emailText: '', messageText: '' });
             })
             .catch((error) => {
