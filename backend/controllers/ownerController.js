@@ -127,7 +127,10 @@ exports.postCreateEv = [
             make: req.body.make, 
             model: req.body.model,
             year: req.body.year,
-            price: req.body.price,
+            price_per_day: req.body.price,
+            deposit: req.body.deposit,
+            min_rental_period: req.body.minRentalPeriod,
+            included_extras: req.body.includedExtras,
             mileage: req.body.mileage,
             location: req.body.location,
             image_urls: req.body.imageUrls,
@@ -140,6 +143,7 @@ exports.postCreateEv = [
             interior: { seating: req.body.seating, colour: req.body.interiorColour },
             vehicle_identification_number: req.body.vehicleIdentificationNumber,
             full_vehicle_inspection: req.body.fullVehicleInspection, 
+            pco_license: req.body.pcoLicense, 
         }
 
         const ev = new EV(evDetail);
